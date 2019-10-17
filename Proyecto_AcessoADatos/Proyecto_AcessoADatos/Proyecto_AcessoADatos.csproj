@@ -216,6 +216,7 @@
     <Compile Include="Models\apuestas.cs" />
     <Compile Include="Models\cuenta.cs" />
     <Compile Include="Models\evento.cs" />
+    <Compile Include="Models\eventoRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\mercado.cs" />
     <Compile Include="Models\usuario.cs" />
