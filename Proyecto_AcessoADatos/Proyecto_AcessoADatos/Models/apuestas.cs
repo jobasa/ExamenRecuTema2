@@ -7,7 +7,7 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class apuestas
     {
-        public apuestas(int idApuestas, int dinero_apostado, int cuota, int mercado_apuesta, string tipo_apuesta, int idMercado, int dni)
+        public apuestas(int idApuestas, int dinero_apostado, string cuota, int mercado_apuesta, string tipo_apuesta, int idMercado, string dni)
         {
             this.idApuestas = idApuestas;
             Dinero_apostado = dinero_apostado;
@@ -20,10 +20,10 @@ namespace Proyecto_AcessoADatos.Models
 
         public int idApuestas { get; set; }
         public int Dinero_apostado { get; set; }
-        public int Cuota { get; set; }
+        public string Cuota { get; set; }
         public int Mercado_apuesta { get; set; }
         public string Tipo_apuesta { get; set; }
         public int idMercado { get; set; }
-        public int Dni { get; set; }
+        public string Dni { get; set; }
     }
 }

@@ -7,7 +7,15 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class cuenta
     {
-        public int Dni { get; set; }
+        public cuenta(string dni, int saldo_actual, string nombre_banco, string num_tarjeta_vinculada)
+        {
+            Dni = dni;
+            Saldo_actual = saldo_actual;
+            Nombre_banco = nombre_banco;
+            Num_tarjeta_vinculada = num_tarjeta_vinculada;
+        }
+
+        public string Dni { get; set; }
         public int Saldo_actual { get; set; }
         public string Nombre_banco { get; set; }
         public string Num_tarjeta_vinculada { get; set; }
