@@ -15,25 +15,37 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal evento Retrieve()
+        internal List<evento> Retrieve()
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "select * from partido";
 
+            try { 
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
 
             evento e = null;
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<evento> eventos = new List<evento>();
             //Devolver objeto evento. Se devolvera el primer registro
-            if (res.Read()){
+            while (res.Read()){
                 Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2));
                 e = new evento(res.GetInt32(0), res.GetString(1), res.GetString(2));
+                    //Añade el objeto al list
+                    eventos.Add(e);
             }
 
             con.Close();
-            return e;
+            return eventos;
 
+            }
+            //Error que salta cuando esta puesto mal el server
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha porducido un error de conexión");
+                return null;
+            }
 
         }
     }

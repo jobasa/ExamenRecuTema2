@@ -21,6 +21,7 @@ namespace Proyecto_AcessoADatos.Models
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "select * from cuenta";
 
+            try { 
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
 
@@ -35,6 +36,13 @@ namespace Proyecto_AcessoADatos.Models
             con.Close();
             return c;
 
+           }
+            //Error que salta cuando esta puesto mal el server
+            catch(MySqlException e)
+            {
+                Debug.WriteLine("Se ha porducido un error de conexión");
+                return null;
+            }
 
         }
     }
