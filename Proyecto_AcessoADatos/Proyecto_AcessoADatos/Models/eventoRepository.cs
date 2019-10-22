@@ -26,9 +26,11 @@ namespace Proyecto_AcessoADatos.Models
             MySqlDataReader res = command.ExecuteReader();
 
             evento e = null;
-                //Cada vez que ecuentra un objeto lo añade al list
-                List<evento> eventos = new List<evento>();
-            //Devolver objeto evento. Se devolvera el primer registro
+
+             //Cada vez que ecuentra un objeto lo añade al list
+             List<evento> eventos = new List<evento>();
+
+            //Devolver objeto evento. Se devolvera un registro y lo añadira a la lista
             while (res.Read()){
                 Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2));
                 e = new evento(res.GetInt32(0), res.GetString(1), res.GetString(2));

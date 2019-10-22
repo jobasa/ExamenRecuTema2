@@ -15,7 +15,7 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal apuestas Retrieve()
+        internal List<apuestas> Retrieve()
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -26,15 +26,20 @@ namespace Proyecto_AcessoADatos.Models
             MySqlDataReader res = command.ExecuteReader();
 
             apuestas a = null;
-            //Devolver objeto evento. Se devolvera el primer registro
-            if (res.Read())
+
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<apuestas> apuesta = new List<apuestas>();
+
+                ////Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
+                while (res.Read())
             {
                 Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3) + " " + res.GetString(4) + " " + res.GetInt32(5) + " " + res.GetString(6));
                 a = new apuestas(res.GetInt32(0), res.GetInt32(1), res.GetString(2), res.GetInt32(3), res.GetString(4), res.GetInt32(5), res.GetString(6));
-            }
+                    apuesta.Add(a);
+                }
 
             con.Close();
-            return a;
+            return apuesta;
 
             }
             //Error que salta cuando esta puesto mal el server

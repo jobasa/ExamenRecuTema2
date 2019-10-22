@@ -15,7 +15,7 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal mercado Retrieve()
+        internal List<mercado> Retrieve()
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -26,15 +26,20 @@ namespace Proyecto_AcessoADatos.Models
             MySqlDataReader res = command.ExecuteReader();
 
             mercado m = null;
-            //Devolver objeto evento. Se devolvera el primer registro
-            if (res.Read())
+
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<mercado> mercados = new List<mercado>();
+
+                ////Devolver objeto mercado. Se devolvera un registro y lo añadira a la lista
+                while (res.Read())
             {
                 Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2) + " " + res.GetString(3) + " " + res.GetString(4) + " " + res.GetInt32(5));
                 m = new mercado(res.GetInt32(0), res.GetString(1), res.GetString(2), res.GetString(3), res.GetString(4), res.GetInt32(5));
+                    mercados.Add(m);
             }
 
             con.Close();
-            return m;
+            return mercados;
 
             }
             //Error que salta cuando esta puesto mal el server
