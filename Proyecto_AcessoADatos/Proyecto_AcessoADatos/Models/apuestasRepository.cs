@@ -17,6 +17,7 @@ namespace Proyecto_AcessoADatos.Models
         }
         internal List<apuestas> Retrieve()
         {
+            //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "select * from apuestas";
@@ -30,7 +31,7 @@ namespace Proyecto_AcessoADatos.Models
                 //Cada vez que ecuentra un objeto lo añade al list
                 List<apuestas> apuesta = new List<apuestas>();
 
-                ////Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
+                //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
                 while (res.Read())
             {
                 Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3) + " " + res.GetString(4) + " " + res.GetInt32(5) + " " + res.GetString(6));

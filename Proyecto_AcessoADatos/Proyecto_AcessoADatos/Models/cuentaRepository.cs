@@ -15,8 +15,9 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal cuenta Retrieve()
+        internal List<cuenta>  Retrieve()
         {
+            //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "select * from cuenta";
@@ -26,15 +27,20 @@ namespace Proyecto_AcessoADatos.Models
             MySqlDataReader res = command.ExecuteReader();
 
             cuenta c = null;
-            //Devolver objeto evento. Se devolvera el primer registro
-            if (res.Read())
+
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<cuenta> cuentas = new List<cuenta>();
+
+                ////Devolver objeto cuenta. Se devolvera un registro y lo añadira a la lista
+                while (res.Read())
             {
                 Debug.WriteLine("Recuperado: " + res.GetString(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3));
                 c = new cuenta(res.GetString(0), res.GetInt32(1), res.GetString(2),res.GetInt32(3));
+                    cuentas.Add(c);
             }
 
             con.Close();
-            return c;
+            return cuentas;
 
            }
             //Error que salta cuando esta puesto mal el server

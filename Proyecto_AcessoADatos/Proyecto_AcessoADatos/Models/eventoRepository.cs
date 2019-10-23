@@ -17,6 +17,7 @@ namespace Proyecto_AcessoADatos.Models
         }
         internal List<evento> Retrieve()
         {
+            //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "select * from partido";

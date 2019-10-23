@@ -11,17 +11,20 @@ namespace Proyecto_AcessoADatos.Controllers
     public class usuarioController : ApiController
     {
         // GET: api/usuario
-        public IEnumerable<string> Get()
+        public IEnumerable<usuario> Get()
         {
-            return new string[] { "value1", "value2" };
+            //Devuelve un array de eventos en formato JSON
+            var repo = new usuarioRepository();
+            List<usuario> usuarios= repo.Retrieve();
+            return usuarios;
         }
 
         // GET: api/usuario/5
         public usuario Get(int id)
         {
-            var repo = new usuarioRepository();
-            usuario u = repo.Retrieve();
-            return u;
+            /*var repo = new usuarioRepository();
+            usuario u = repo.Retrieve();*/
+            return null;
         }
 
         // POST: api/usuario
