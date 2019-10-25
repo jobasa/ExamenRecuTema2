@@ -51,5 +51,44 @@ namespace Proyecto_AcessoADatos.Models
             }
 
         }
+
+        internal List<eventoDTO> RetrieveDTO()
+        {
+            //Devuelve todos los registros
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select * from partido";
+
+            try
+            {
+                con.Open();
+                MySqlDataReader res = command.ExecuteReader();
+
+                eventoDTO e = null;
+
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<eventoDTO> eventos = new List<eventoDTO>();
+
+                //Devolver objeto evento. Se devolvera un registro y lo añadira a la lista
+                while (res.Read())
+                {
+                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2));
+                    e = new eventoDTO(res.GetString(1), res.GetString(2));
+                    //Añade el objeto al list
+                    eventos.Add(e);
+                }
+
+                con.Close();
+                return eventos;
+
+            }
+            //Error que salta cuando esta puesto mal el server
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha porducido un error de conexión");
+                return null;
+            }
+
+        }
     }
 }
