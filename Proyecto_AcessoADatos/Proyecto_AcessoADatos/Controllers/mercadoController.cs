@@ -10,13 +10,16 @@ namespace Proyecto_AcessoADatos.Controllers
 {
     public class mercadoController : ApiController
     {
+
         // GET: api/mercado
-        public IEnumerable<mercado> Get()
+        public IEnumerable<mercadoDTO> Get()
         {
             //Devuelve un array de eventos en formato JSON
             var repo = new mercadoRepository();
-            List<mercado> mercados = repo.Retrieve();
+            /*List<mercado> mercados = repo.Retrieve();*/
+            List<mercadoDTO> mercados = repo.RetrieveDTO();
             return mercados;
+
         }
 
         // GET: api/mercado/5

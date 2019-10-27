@@ -51,5 +51,43 @@ namespace Proyecto_AcessoADatos.Models
             }
 
         }
+
+        internal List<apuestasDTO> RetrieveDTO()
+        {
+            //Devuelve todos los registros
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select * from apuestas";
+
+            try
+            {
+                con.Open();
+                MySqlDataReader res = command.ExecuteReader();
+
+                apuestasDTO a = null;
+
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<apuestasDTO> apuesta = new List<apuestasDTO>();
+
+                //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
+                while (res.Read())
+                {
+                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3) + " " + res.GetString(4) + " " + res.GetInt32(5) + " " + res.GetString(6));
+                    a = new apuestasDTO(res.GetInt32(1), res.GetString(2), res.GetInt32(3), res.GetString(4));
+                    apuesta.Add(a);
+                }
+
+                con.Close();
+                return apuesta;
+
+            }
+            //Error que salta cuando esta puesto mal el server
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha porducido un error de conexión");
+                return null;
+            }
+
+        }
     }
 }

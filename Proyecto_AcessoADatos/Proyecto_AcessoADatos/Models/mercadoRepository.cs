@@ -51,5 +51,43 @@ namespace Proyecto_AcessoADatos.Models
             }
 
         }
+
+        internal List<mercadoDTO> RetrieveDTO()
+        {
+            //Devuelve todos los registros
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "select * from mercado";
+
+            try
+            {
+                con.Open();
+                MySqlDataReader res = command.ExecuteReader();
+
+                mercadoDTO m = null;
+
+                //Cada vez que ecuentra un objeto lo añade al list
+                List<mercadoDTO> mercados = new List<mercadoDTO>();
+
+                ////Devolver objeto mercado. Se devolvera un registro y lo añadira a la lista
+                while (res.Read())
+                {
+                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2) + " " + res.GetString(3) + " " + res.GetString(4) + " " + res.GetInt32(5));
+                    m = new mercadoDTO(res.GetString(1), res.GetString(2), res.GetString(3), res.GetString(4));
+                    mercados.Add(m);
+                }
+
+                con.Close();
+                return mercados;
+
+            }
+            //Error que salta cuando esta puesto mal el server
+            catch (MySqlException e)
+            {
+                Debug.WriteLine("Se ha porducido un error de conexión");
+                return null;
+            }
+
+        }
     }
 }

@@ -11,11 +11,12 @@ namespace Proyecto_AcessoADatos.Controllers
     public class apuestasController : ApiController
     {
         // GET: api/apuestas
-        public IEnumerable<apuestas> Get()
+        public IEnumerable<apuestasDTO> Get()
         {
             //Devuelve un array de eventos en formato JSON
             var repo = new apuestasRepository();
-            List<apuestas> apuesta = repo.Retrieve();
+            /*List<apuestas> apuesta = repo.Retrieve();*/
+            List<apuestasDTO> apuesta = repo.RetrieveDTO();
             return apuesta;
         }
 

@@ -25,4 +25,20 @@ namespace Proyecto_AcessoADatos.Models
         public string Dinero_under { get; set; }
         public int idPartido { get; set; }
     }
+
+    public class mercadoDTO
+    {
+        public mercadoDTO(string cuota_over, string cuota_under, string dinero_over, string dinero_under)
+        {
+            Cuota_over = cuota_over;
+            Cuota_under = cuota_under;
+            Dinero_over = dinero_over;
+            Dinero_under = dinero_under;
+        }
+
+        public string Cuota_over { get; set; }
+        public string Cuota_under { get; set; }
+        public string Dinero_over { get; set; }
+        public string Dinero_under { get; set; }
+    }
 }

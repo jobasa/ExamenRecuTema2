@@ -26,4 +26,21 @@ namespace Proyecto_AcessoADatos.Models
         public int idMercado { get; set; }
         public string Dni { get; set; }
     }
+
+    public class apuestasDTO
+    {
+        public apuestasDTO(int dinero_apostado, string cuota, int mercado_apuesta, string tipo_apuesta)
+        {
+            Dinero_apostado = dinero_apostado;
+            Cuota = cuota;
+            Mercado_apuesta = mercado_apuesta;
+            Tipo_apuesta = tipo_apuesta;
+        }
+
+        public int Dinero_apostado { get; set; }
+        public string Cuota { get; set; }
+        public int Mercado_apuesta { get; set; }
+        public string Tipo_apuesta { get; set; }
+
+    }
 }
