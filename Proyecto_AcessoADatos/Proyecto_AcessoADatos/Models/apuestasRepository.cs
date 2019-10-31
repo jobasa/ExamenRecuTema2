@@ -89,5 +89,24 @@ namespace Proyecto_AcessoADatos.Models
             }
 
         }
+
+        string apuesta = "INSERT INTO apuestas(idApuestas, Dinero_apostado, Cuota, Mercado_apuesta, Tipo_apuesta, idMercado, Dni) values ()" ;
+        string mercados = "UPDATE mercado SET"+overUnder+"="+overUnder+" + "+a.Dinero_apostado+" WHERE idApuestas = " + idMercado+";" ;
+        EjecutarConsulta(apuesta);
+        EjecutarConsulta(mercados);
+
+        List<mercado> mercadoARegular = RecuperarMercado(a.idMercado);
+        double cuotaOver;
+        double cuotaUnder;
+        double probabilidadOver;
+        double probabilidadUnder;
+
+        probabilidadOver= mercadoARegular[0];
+        probabilidadUnder;
+        cuotaOver= 1/probabilidadOver*0.95;
+        cuotaUnder= 1/probabilidadUnder*0.95;
+
+        string actualizarCuota = "UPDATE mercado SET Cuota ="+ cuotaOver+", Cuota= "+ cuotaUnder+";";
+        EjecutarConsulta(actualizarCuota);
     }
 }
