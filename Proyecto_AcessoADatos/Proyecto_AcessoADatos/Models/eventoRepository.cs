@@ -72,8 +72,8 @@ namespace Proyecto_AcessoADatos.Models
                 //Devolver objeto evento. Se devolvera un registro y lo añadira a la lista
                 while (res.Read())
                 {
-                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2));
-                    e = new eventoDTO(res.GetString(1), res.GetString(2));
+                    Debug.WriteLine("Recuperado: " + res.GetString(0) + " " + res.GetString(1));
+                    e = new eventoDTO(res.GetString(0), res.GetString(1));
                     //Añade el objeto al list
                     eventos.Add(e);
                 }

@@ -7,39 +7,35 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class apuestas
     {
-        public apuestas(int idApuestas, int dinero_apostado, string cuota, int mercado_apuesta, string tipo_apuesta, int idMercado, string dni)
+        public apuestas(int Id, decimal Dinero_apostado, decimal Cuota, string Tipo_apuesta, int ID_MERCADO, int ID_USUARIOS)
         {
-            this.idApuestas = idApuestas;
-            Dinero_apostado = dinero_apostado;
-            Cuota = cuota;
-            Mercado_apuesta = mercado_apuesta;
-            Tipo_apuesta = tipo_apuesta;
-            this.idMercado = idMercado;
-            Dni = dni;
+            this.Id = Id;
+            this.Dinero_apostado = Dinero_apostado;
+            this.Cuota = Cuota;
+            this.Tipo_apuesta = Tipo_apuesta;
+            this.ID_MERCADO = ID_MERCADO;
+            this.ID_USUARIOS = ID_USUARIOS;
         }
 
-        public int idApuestas { get; set; }
-        public int Dinero_apostado { get; set; }
-        public string Cuota { get; set; }
-        public int Mercado_apuesta { get; set; }
+        public int Id { get; set; }
+        public decimal Dinero_apostado { get; set; }
+        public decimal Cuota { get; set; }
         public string Tipo_apuesta { get; set; }
-        public int idMercado { get; set; }
-        public string Dni { get; set; }
+        public int ID_MERCADO { get; set; }
+        public int ID_USUARIOS { get; set; }
     }
 
     public class apuestasDTO
     {
-        public apuestasDTO(int dinero_apostado, string cuota, int mercado_apuesta, string tipo_apuesta)
+        public apuestasDTO(decimal Dinero_apostado, decimal Cuota, string Tipo_apuesta)
         {
-            Dinero_apostado = dinero_apostado;
-            Cuota = cuota;
-            Mercado_apuesta = mercado_apuesta;
-            Tipo_apuesta = tipo_apuesta;
+            this.Dinero_apostado = Dinero_apostado;
+            this.Cuota = Cuota;
+            this.Tipo_apuesta = Tipo_apuesta;
         }
 
-        public int Dinero_apostado { get; set; }
-        public string Cuota { get; set; }
-        public int Mercado_apuesta { get; set; }
+        public decimal Dinero_apostado { get; set; }
+        public decimal Cuota { get; set; }
         public string Tipo_apuesta { get; set; }
 
     }

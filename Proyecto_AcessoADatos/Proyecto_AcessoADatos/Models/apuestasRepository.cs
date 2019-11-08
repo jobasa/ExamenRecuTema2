@@ -34,8 +34,8 @@ namespace Proyecto_AcessoADatos.Models
                 //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
                 while (res.Read())
             {
-                Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3) + " " + res.GetString(4) + " " + res.GetInt32(5) + " " + res.GetString(6));
-                a = new apuestas(res.GetInt32(0), res.GetInt32(1), res.GetString(2), res.GetInt32(3), res.GetString(4), res.GetInt32(5), res.GetString(6));
+                Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetDecimal(1) + " " + res.GetDecimal(2) + " " + res.GetString(3) + " " + res.GetInt32(4) + " " + res.GetInt32(5));
+                a = new apuestas(res.GetInt32(0), res.GetDecimal(1), res.GetDecimal(2), res.GetString(3), res.GetInt32(4), res.GetInt32(5));
                     apuesta.Add(a);
                 }
 
@@ -72,8 +72,8 @@ namespace Proyecto_AcessoADatos.Models
                 //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
                 while (res.Read())
                 {
-                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetInt32(1) + " " + res.GetString(2) + " " + res.GetInt32(3) + " " + res.GetString(4) + " " + res.GetInt32(5) + " " + res.GetString(6));
-                    a = new apuestasDTO(res.GetInt32(1), res.GetString(2), res.GetInt32(3), res.GetString(4));
+                    Debug.WriteLine("Recuperado: " + res.GetDecimal(0) + " " + res.GetDecimal(1) + " " + res.GetString(2));
+                    a = new apuestasDTO(res.GetDecimal(0), res.GetDecimal(1), res.GetString(2));
                     apuesta.Add(a);
                 }
 
@@ -90,7 +90,7 @@ namespace Proyecto_AcessoADatos.Models
 
         }
 
-        string apuesta = "INSERT INTO apuestas(idApuestas, Dinero_apostado, Cuota, Mercado_apuesta, Tipo_apuesta, idMercado, Dni) values ()" ;
+       /* string apuesta = "INSERT INTO apuestas(idApuestas, Dinero_apostado, Cuota, Mercado_apuesta, Tipo_apuesta, idMercado, Dni) values ()" ;
         string mercados = "UPDATE mercado SET"+overUnder+"="+overUnder+" + "+a.Dinero_apostado+" WHERE idApuestas = " + idMercado+";" ;
         EjecutarConsulta(apuesta);
         EjecutarConsulta(mercados);
@@ -107,6 +107,6 @@ namespace Proyecto_AcessoADatos.Models
         cuotaUnder= 1/probabilidadUnder*0.95;
 
         string actualizarCuota = "UPDATE mercado SET Cuota ="+ cuotaOver+", Cuota= "+ cuotaUnder+";";
-        EjecutarConsulta(actualizarCuota);
+        EjecutarConsulta(actualizarCuota);*/
     }
 }

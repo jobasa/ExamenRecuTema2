@@ -7,27 +7,27 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class evento
     {
-        public evento(int idPartido, string equipo_Local, string equipo_Visitante)
+        public evento(int ID_Equipo, string Equipo_Local, string Equipo_visitante)
         {
-            this.idPartido = idPartido;
-            Equipo_Local = equipo_Local;
-            Equipo_Visitante = equipo_Visitante;
+            this.ID_Equipo = ID_Equipo;
+            this.Equipo_Local = Equipo_Local;
+            this.Equipo_visitante = Equipo_visitante;
         }
 
-        public int idPartido { get; set; }
+        public int ID_Equipo { get; set; }
         public string Equipo_Local { get; set; }
-        public string Equipo_Visitante { get; set; }
+        public string Equipo_visitante { get; set; }
     }
 
     public class eventoDTO
     {
-        public eventoDTO(string equipo_Local, string equipo_Visitante)
+        public eventoDTO(string Equipo_Local, string Equipo_visitante)
         {
-            Equipo_Local = equipo_Local;
-            Equipo_Visitante = equipo_Visitante;
+            this.Equipo_Local = Equipo_Local;
+            this.Equipo_visitante = Equipo_visitante;
         }
 
         public string Equipo_Local { get; set; }
-        public string Equipo_Visitante { get; set; }
+        public string Equipo_visitante { get; set; }
     }
 }
