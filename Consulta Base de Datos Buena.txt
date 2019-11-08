@@ -1,0 +1,52 @@
+CREATE DATABASE mydb;
+USE mydb;
+
+CREATE TABLE usuario(
+ ID INT NOT NULL AUTO_INCREMENT,
+ Nombre VARCHAR(255) NOT NULL,
+ Apellido VARCHAR(255) NOT NULL,
+ Email VARCHAR(255) NOT NULL,
+ Edad INT,
+ PRIMARY KEY (ID)
+ );
+
+CREATE TABLE cuenta(
+ID INT NOT NULL AUTO_INCREMENT,
+Num_tarjeta_vinculada varchar(45) NOT NULL,
+Saldo_actual decimal(2) NOT NULL,
+Nombre_banco VARCHAR(45) NOT NULL,
+ID_Usuario INT NOT NULL,
+PRIMARY KEY (ID),
+FOREIGN KEY (ID_Usuario) REFERENCES usuario(ID)
+);
+
+CREATE TABLE partido(
+ID_Equipo INT NOT NULL AUTO_INCREMENT,
+Equipo_visitante VARCHAR(45) NOT NULL,
+Equipo_Local VARCHAR(45) NOT NULL,
+PRIMARY KEY (ID_Equipo) 
+);
+
+CREATE TABLE mercado(
+tipo_mercado VARCHAR(45) NOT NULL,
+Cuota_over DECIMAL(45) NOT NULL,
+Cuota_under DECIMAL(45) NOT NULL,
+id INT NOT NULL AUTO_INCREMENT,
+Dinero_over FLOAT(45) NOT NULL,
+Dinero_under FLOAT(45) NOT NULL,
+IDEvento INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (IDEvento) REFERENCES partido(ID_Equipo)
+);
+
+CREATE TABLE apuestas(
+Id INT NOT NULL AUTO_INCREMENT,
+Tipo_apuesta VARCHAR(45) NOT NULL,
+Cuota decimal(2) NOT NULL,
+Dinero_apostado decimal(2) NOT NULL,
+ID_MERCADO INT NOT NULL,
+ID_USUARIOS INT NOT NULL,
+PRIMARY KEY (Id),
+FOREIGN KEY (ID_MERCADO) REFERENCES mercado(id)
+);
+
