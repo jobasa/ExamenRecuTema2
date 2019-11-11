@@ -90,6 +90,18 @@ namespace Proyecto_AcessoADatos.Models
 
         }
 
+        internal void Save(apuestas a)
+        {
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.idApuesta+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
+            Debug.WriteLine("comando" + command.CommandText);
+
+            mercado m;
+
+
+        }
+
        /* string apuesta = "INSERT INTO apuestas(idApuestas, Dinero_apostado, Cuota, Mercado_apuesta, Tipo_apuesta, idMercado, Dni) values ()" ;
         string mercados = "UPDATE mercado SET"+overUnder+"="+overUnder+" + "+a.Dinero_apostado+" WHERE idApuestas = " + idMercado+";" ;
         EjecutarConsulta(apuesta);

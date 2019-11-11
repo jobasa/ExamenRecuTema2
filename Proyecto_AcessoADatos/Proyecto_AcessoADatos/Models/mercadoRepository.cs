@@ -15,78 +15,53 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal List<mercado> Retrieve()
+        internal mercado Retrieve()
         {
             //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from mercado";
-
-            try { 
+            command.CommandText = "select * from mercado"; 
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
 
             mercado m = null;
 
                 //Cada vez que ecuentra un objeto lo añade al list
-                List<mercado> mercados = new List<mercado>();
+                //List<mercado> mercados = new List<mercado>();
 
                 ////Devolver objeto mercado. Se devolvera un registro y lo añadira a la lista
-                while (res.Read())
+                if (res.Read())
             {
-                Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2) + " " + res.GetString(3) + " " + res.GetString(4) + " " + res.GetInt32(5));
-                m = new mercado(res.GetInt32(0), res.GetString(1), res.GetString(2), res.GetString(3), res.GetString(4), res.GetInt32(5));
-                    mercados.Add(m);
+                m = new mercado(res.GetString(0), res.GetDecimal(1), res.GetDecimal(2), res.GetInt32(3), res.GetFloat(4), res.GetFloat(5), res.GetInt32(6));
             }
 
             con.Close();
-            return mercados;
-
-            }
-            //Error que salta cuando esta puesto mal el server
-            catch (MySqlException e)
-            {
-                Debug.WriteLine("Se ha porducido un error de conexión");
-                return null;
-            }
-
+            return m;
         }
 
-        internal List<mercadoDTO> RetrieveDTO()
+        internal mercadoDTO RetrieveDTO()
         {
             //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "select * from mercado";
 
-            try
-            {
-                con.Open();
-                MySqlDataReader res = command.ExecuteReader();
+            con.Open();
+            MySqlDataReader res = command.ExecuteReader();
 
-                mercadoDTO m = null;
+            mercadoDTO m = null;
 
                 //Cada vez que ecuentra un objeto lo añade al list
-                List<mercadoDTO> mercados = new List<mercadoDTO>();
+                //List<mercadoDTO> mercados = new List<mercadoDTO>();
 
-                ////Devolver objeto mercado. Se devolvera un registro y lo añadira a la lista
-                while (res.Read())
+                ////Devolver objeto mercado. Se devolvera un registro
+                if (res.Read())
                 {
-                    Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2) + " " + res.GetString(3) + " " + res.GetString(4) + " " + res.GetInt32(5));
-                    m = new mercadoDTO(res.GetString(1), res.GetString(2), res.GetString(3), res.GetString(4));
-                    mercados.Add(m);
+                    m = new mercadoDTO(res.GetString(0), res.GetDecimal(1), res.GetDecimal(2));
                 }
 
                 con.Close();
-                return mercados;
-
-            }
-            //Error que salta cuando esta puesto mal el server
-            catch (MySqlException e)
-            {
-                Debug.WriteLine("Se ha porducido un error de conexión");
-                return null;
-            }
+                return m;
 
         }
     }

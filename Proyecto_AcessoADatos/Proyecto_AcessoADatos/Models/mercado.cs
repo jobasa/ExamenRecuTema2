@@ -8,37 +8,37 @@ namespace Proyecto_AcessoADatos.Models
 
     public class mercado
     {
-        public mercado(int idMercado, string cuota_over, string cuota_under, string dinero_over, string dinero_under, int idPartido)
+        public mercado(string tipo_mercado, decimal Cuota_over, decimal Cuota_under, int id, float Dinero_over, float Dinero_under, int IDEvento)
         {
-            this.idMercado = idMercado;
-            Cuota_over = cuota_over;
-            Cuota_under = cuota_under;
-            Dinero_over = dinero_over;
-            Dinero_under = dinero_under;
-            this.idPartido = idPartido;
+            this.tipo_mercado = tipo_mercado;
+            this.Cuota_over = Cuota_over;
+            this.Cuota_under = Cuota_under;
+            this.id = id;
+            this.Dinero_over = Dinero_over;
+            this.Dinero_under = Dinero_under;
+            this.IDEvento = IDEvento;
         }
 
-        public int idMercado { get; set; }
-        public string Cuota_over { get; set; }
-        public string Cuota_under { get; set; }
-        public string Dinero_over { get; set; }
-        public string Dinero_under { get; set; }
-        public int idPartido { get; set; }
+        public string tipo_mercado { get; set; }
+        public decimal Cuota_over { get; set; }
+        public decimal Cuota_under { get; set; }
+        public int id { get; set; }
+        public float Dinero_over { get; set; }
+        public float Dinero_under { get; set; }
+        public int IDEvento { get; set; }
     }
 
     public class mercadoDTO
     {
-        public mercadoDTO(string cuota_over, string cuota_under, string dinero_over, string dinero_under)
+        public mercadoDTO(string tipo_mercado, decimal Cuota_over, decimal Cuota_under)
         {
-            Cuota_over = cuota_over;
-            Cuota_under = cuota_under;
-            Dinero_over = dinero_over;
-            Dinero_under = dinero_under;
+            this.tipo_mercado = tipo_mercado;
+            this.Cuota_over = Cuota_over;
+            this.Cuota_under = Cuota_under;
         }
 
-        public string Cuota_over { get; set; }
-        public string Cuota_under { get; set; }
-        public string Dinero_over { get; set; }
-        public string Dinero_under { get; set; }
+        public string tipo_mercado { get; set; }
+        public decimal Cuota_over { get; set; }
+        public decimal Cuota_under { get; set; }
     }
 }
