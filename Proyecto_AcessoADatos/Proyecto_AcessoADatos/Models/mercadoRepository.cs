@@ -20,7 +20,7 @@ namespace Proyecto_AcessoADatos.Models
             //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from mercado"; 
+            command.CommandText = "select * from mercado"; //Duda
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
 
