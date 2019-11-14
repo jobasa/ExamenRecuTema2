@@ -23,14 +23,16 @@ namespace Proyecto_AcessoADatos.Controllers
         // GET: api/apuestas/5
         public apuestas Get(int id)
         {
-            /*var repo = new apuestasRepository();
-            apuestas a = repo.Retrieve();*/
-            return null;
+            var repo = new apuestasRepository();
+            apuestas a = repo.Retrieve();
+            return a;
         }
 
         // POST: api/apuestas
-        public void Post([FromBody]string value)
+        public void Post([FromBody]apuestas d)
         {
+            var repo = new apuestasRepository();
+            repo.Save(d);
         }
 
         // PUT: api/apuestas/5

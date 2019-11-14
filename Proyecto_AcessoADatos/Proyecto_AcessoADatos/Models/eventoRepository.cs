@@ -15,79 +15,50 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal List<evento> Retrieve()
+        internal evento Retrieve()
         {
             //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from partido";
+            command.CommandText = "Select(m.tipo_mercado,m.Cuota_over,m.Cuota_under) from mercado m";
 
-            try { 
             con.Open();
             MySqlDataReader res = command.ExecuteReader();
 
             evento e = null;
 
-             //Cada vez que ecuentra un objeto lo añade al list
-             List<evento> eventos = new List<evento>();
 
             //Devolver objeto evento. Se devolvera un registro y lo añadira a la lista
-            while (res.Read()){
-                Debug.WriteLine("Recuperado: " + res.GetInt32(0) + " " + res.GetString(1) + " " + res.GetString(2));
+            if (res.Read()){
                 e = new evento(res.GetInt32(0), res.GetString(1), res.GetString(2));
-                    //Añade el objeto al list
-                    eventos.Add(e);
             }
 
             con.Close();
-            return eventos;
-
-            }
-            //Error que salta cuando esta puesto mal el server
-            catch (MySqlException e)
-            {
-                Debug.WriteLine("Se ha porducido un error de conexión");
-                return null;
-            }
-
+            return e;
         }
 
-        internal List<eventoDTO> RetrieveDTO()
+        internal eventoDTO RetrieveDTO()
         {
             //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from partido";
+            command.CommandText = "Select * from partido";
 
-            try
-            {
                 con.Open();
                 MySqlDataReader res = command.ExecuteReader();
 
                 eventoDTO e = null;
 
-                //Cada vez que ecuentra un objeto lo añade al list
-                List<eventoDTO> eventos = new List<eventoDTO>();
 
                 //Devolver objeto evento. Se devolvera un registro y lo añadira a la lista
-                while (res.Read())
+                if (res.Read())
                 {
-                    Debug.WriteLine("Recuperado: " + res.GetString(0) + " " + res.GetString(1));
                     e = new eventoDTO(res.GetString(0), res.GetString(1));
-                    //Añade el objeto al list
-                    eventos.Add(e);
                 }
 
                 con.Close();
-                return eventos;
+                return e;
 
-            }
-            //Error que salta cuando esta puesto mal el server
-            catch (MySqlException e)
-            {
-                Debug.WriteLine("Se ha porducido un error de conexión");
-                return null;
-            }
 
         }
     }
