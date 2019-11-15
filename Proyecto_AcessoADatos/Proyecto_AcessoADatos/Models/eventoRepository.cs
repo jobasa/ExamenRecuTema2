@@ -50,7 +50,7 @@ namespace Proyecto_AcessoADatos.Models
                 eventoDTO e = null;
 
 
-                //Devolver objeto evento. Se devolvera un registro y lo añadira a la lista
+                //Devolver objeto evento. Se devolvera un registro
                 if (res.Read())
                 {
                     e = new eventoDTO(res.GetString(0), res.GetString(1));

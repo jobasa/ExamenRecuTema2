@@ -48,7 +48,7 @@ namespace Proyecto_AcessoADatos.Models
             //Devuelve todos los registros
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "select * from apuestas";//Duda
+            command.CommandText = "Select(A.Cuota,A.Tipo_apuesta,A.Dinero_apostado,U.Email,M.tipo_mercado) from apuestas A INNER JOIN usuario U INNER JOIN mercado M ON A.ID_MERCADO = M.id AND A.ID_USUARIOS = U.ID; ";
 
 
                 con.Open();
