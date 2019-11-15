@@ -76,10 +76,10 @@ namespace Proyecto_AcessoADatos.Models
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
-            command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.idApuesta+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
+            command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
             Debug.WriteLine("comando" + command.CommandText);
 
-            mercado m;
+            mercado m = new mercado();//modificar aqui
             double Cuota_over; //Duda: pasa algo si lo llamas igual que lo tienes puesto en mercado.cs
             double Cuota_under;
             double prob_over;
