@@ -11,6 +11,7 @@ namespace Proyecto_AcessoADatos.Controllers
     public class apuestasController : ApiController
     {
         // GET: api/apuestas
+        [Authorize]
         public apuestasDTO Get(string Email)
         {
             //Devuelve un array de eventos en formato JSON
