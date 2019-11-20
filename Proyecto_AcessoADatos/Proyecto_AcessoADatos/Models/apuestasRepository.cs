@@ -15,7 +15,7 @@ namespace Proyecto_AcessoADatos.Models
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-        internal apuestas Retrieve()
+        internal List<apuestas> Retrieve()
         {
             //Devuelve todos los registros
             MySqlConnection con = Connect();
@@ -26,18 +26,20 @@ namespace Proyecto_AcessoADatos.Models
             MySqlDataReader res = command.ExecuteReader();
 
             apuestas a = null;
+            List<apuestas> apuesta = new List<apuestas>();
 
                 //Cada vez que ecuentra un objeto lo añade al list
                 //List<apuestas> apuesta = new List<apuestas>();
 
                 //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
                 if (res.Read())
-            {
-                a = new apuestas(res.GetInt32(0), res.GetDecimal(1), res.GetDecimal(2), res.GetString(3), res.GetInt32(4), res.GetInt32(5));
+                {
+                    a = new apuestas(res.GetInt32(0), res.GetDecimal(1), res.GetDecimal(2), res.GetString(3), res.GetInt32(4), res.GetInt32(5));
+                    apuesta.Add(a);
                 }
 
             con.Close();
-            return a;
+            return apuesta;
 
 
 
@@ -79,33 +81,8 @@ namespace Proyecto_AcessoADatos.Models
             command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
             Debug.WriteLine("comando" + command.CommandText);
 
-            //mercado m = new mercado();//modificar aqui
-            private List<mercado> RecuperarMercado(int id)
-            {
-                MySqlConnection con = Connect();
-                MySqlCommand command = con.CreateCommand();
-                command.CommandText = "SELECT * FROM mercado WHERE id = " + id + ";";
-
-                try
-                {
-                    con.Open();
-                    MySqlDataReader res = command.ExecuteReader();
-                    mercado m = null;
-                    List<mercado> mercados = new List<mercado>();
-                    if (res.Read())
-                    {
-                        m = new mercado(res.GetString(0), res.GetDecimal(1), res.GetDecimal(2), res.GetInt32(3), res.GetFloat(4), res.GetFloat(5), res.GetInt32(6));
-                        mercados.Add(m);
-                    }
-                    con.Close();
-                    return mercados;
-                }
-                catch(Exception e)
-                {
-                    Debug.WriteLine("Se ha producido un error");
-                    return null;
-                }
-            }
+            mercado m = new mercado();//modificar aqui
+ 
 
             double Cuota_over; //Duda: pasa algo si lo llamas igual que lo tienes puesto en mercado.cs
             double Cuota_under;

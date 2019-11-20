@@ -22,10 +22,10 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
         // GET: api/apuestas/5
-        public apuestas Get(int id)
+        public List<apuestas> Get(int id)
         {
             var repo = new apuestasRepository();
-            apuestas a = repo.Retrieve();
+            List<apuestas> a = repo.Retrieve();
             return a;
         }
 
