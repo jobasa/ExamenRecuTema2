@@ -12,7 +12,7 @@ namespace Proyecto_AcessoADatos.Models
         private MySqlConnection Connect()
         {
             string connString = "Server=127.0.0.1;Port=3306;Database=mydb;Uid=root;password=none;SslMode=none";
-            MySqlConnection con = new MySqlConnection(connString);
+            MySql.Data.MySqlClient.MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
         internal evento Retrieve()
