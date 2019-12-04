@@ -23,5 +23,6 @@ namespace Proyecto_AcessoADatos.Models
         public decimal Saldo_actual { get; set; }
         public string Nombre_banco { get; set; }
         public int ID_Usuario { get; set; }
+        public usuario usuario { get; set; }
     }
 }

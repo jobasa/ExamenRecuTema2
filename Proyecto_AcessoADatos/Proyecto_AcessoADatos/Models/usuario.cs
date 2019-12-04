@@ -22,5 +22,6 @@ namespace Proyecto_AcessoADatos.Models
         public string Apellido { get; set; }
         public string Email { get; set; }
         public int Edad { get; set; }
+        public cuenta cuenta { get; set; }
     }
 }
