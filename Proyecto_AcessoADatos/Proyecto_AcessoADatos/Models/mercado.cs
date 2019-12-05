@@ -26,6 +26,8 @@ namespace Proyecto_AcessoADatos.Models
         public float Dinero_over { get; set; }
         public float Dinero_under { get; set; }
         public int IDEvento { get; set; }
+        public evento evento { get; set; }
+        public List<apuestas> Apuestas { get; set; }
     }
 
     public class mercadoDTO

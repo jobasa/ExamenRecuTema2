@@ -23,6 +23,7 @@ namespace Proyecto_AcessoADatos.Models
         public string Tipo_apuesta { get; set; }
         public int ID_MERCADO { get; set; }
         public int ID_USUARIOS { get; set; }
+        public mercado mercado { get; set; }
     }
 
     public class apuestasDTO

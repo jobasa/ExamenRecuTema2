@@ -17,6 +17,7 @@ namespace Proyecto_AcessoADatos.Models
         public int ID_Equipo { get; set; }
         public string Equipo_Local { get; set; }
         public string Equipo_visitante { get; set; }
+        public List<mercado> Mercados { get; set; }
     }
 
     public class eventoDTO
