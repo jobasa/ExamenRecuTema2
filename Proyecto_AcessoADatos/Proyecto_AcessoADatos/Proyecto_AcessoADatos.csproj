@@ -330,6 +330,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\mercado.cs" />
     <Compile Include="Models\mercadoRepository.cs" />
+    <Compile Include="Models\PlaceMyBetContext.cs" />
     <Compile Include="Models\usuario.cs" />
     <Compile Include="Models\usuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
