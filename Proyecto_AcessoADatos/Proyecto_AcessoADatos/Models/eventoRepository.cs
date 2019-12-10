@@ -38,30 +38,30 @@ namespace Proyecto_AcessoADatos.Models
             return e;*/
         }
 
-        internal eventoDTO RetrieveDTO()
-        {
-            return null;
-            //Devuelve todos los registros
-            //MySqlConnection con = Connect();
-            //MySqlCommand command = con.CreateCommand();
-            //command.CommandText = "Select * from partido";
+        /* internal eventoDTO RetrieveDTO()
+         {
+             return null;
+             //Devuelve todos los registros
+             //MySqlConnection con = Connect();
+             //MySqlCommand command = con.CreateCommand();
+             //command.CommandText = "Select * from partido";
 
-               // con.Open();
-               // MySqlDataReader res = command.ExecuteReader();
+                // con.Open();
+                // MySqlDataReader res = command.ExecuteReader();
 
-                //eventoDTO e = null;
-
-
-                //Devolver objeto evento. Se devolvera un registro
-               /* if (res.Read())
-                {
-                    e = new eventoDTO(res.GetString(0), res.GetString(1));
-                }
-
-                con.Close();
-                return e;*/
+                 //eventoDTO e = null;
 
 
-        }
+                 //Devolver objeto evento. Se devolvera un registro
+                /* if (res.Read())
+                 {
+                     e = new eventoDTO(res.GetString(0), res.GetString(1));
+                 }
+
+                 con.Close();
+                 return e;
+
+
+         }*/
     }
 }

@@ -9,7 +9,7 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class usuarioRepository
     {
-        private MySqlConnection Connect()
+     /*   private MySqlConnection Connect()
         {
             string connString = "Server=127.0.0.1;Port=3306;Database=mydb;Uid=root;password=none;SslMode=none";
             MySqlConnection con = new MySqlConnection(connString);
@@ -50,6 +50,6 @@ namespace Proyecto_AcessoADatos.Models
                 return null;
             }
 
-        }
+        }*/
     }
 }

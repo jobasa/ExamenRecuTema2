@@ -50,7 +50,7 @@ namespace Proyecto_AcessoADatos.Models
 
         }
 
-    internal apuestasDTO RetrieveDTO()
+    /*internal apuestasDTO RetrieveDTO()
         {
             return null;
             //Devuelve todos los registros
@@ -74,11 +74,11 @@ namespace Proyecto_AcessoADatos.Models
                 }
 
                 con.Close();
-                return a;*/
+                return a;
 
 
 
-        }
+        }*/
 
         internal void Save(apuestas a)
         {
@@ -87,7 +87,7 @@ namespace Proyecto_AcessoADatos.Models
             //command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
             ///Debug.WriteLine("comando" + command.CommandText);
 
-            mercado m = new mercado();//modificar aquiS
+            List<mercado> m = Recupera()/modificar aquiS
  
 
             double Cuota_over; 
@@ -122,6 +122,33 @@ namespace Proyecto_AcessoADatos.Models
             {
                 Debug.WriteLine("Se ha producido un error de conexión");
             }*/
+
+
+        }
+        private List<mercado> Recupera(int id)
+        {
+            MySqlConnection con = Connect();
+            MySqlCommand command = con.CreateCommand();
+            command.CommandText = "SELECT * FROM mercado WHERE id = "+id+";";
+            try
+            {
+                con.Open();
+                MySqlDataReader res = command.ExecuteReader();
+                mercado m = null;
+                List<mercado> mercados = new List<mercado>();
+                if (res.Read())
+                {
+                    m = new mercado(res.GetString(0), res.GetDecimal(1), res.GetDecimal(2), res.GetInt32(3), res.GetFloat(4), res.GetFloat(5), res.GetInt32(6));
+                    mercados.Add(m);
+                }
+                con.Close();
+                return mercados;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Se ha producido un error");
+                return null;
+            }
 
 
         }

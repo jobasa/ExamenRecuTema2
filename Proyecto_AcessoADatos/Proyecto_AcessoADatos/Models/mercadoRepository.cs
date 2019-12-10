@@ -40,7 +40,7 @@ namespace Proyecto_AcessoADatos.Models
             return m;*/
         }
 
-        internal mercadoDTO RetrieveDTO()
+        /*internal mercadoDTO RetrieveDTO()
         {
             return null;
             //Devuelve todos los registros
@@ -63,8 +63,8 @@ namespace Proyecto_AcessoADatos.Models
                 }
 
                 con.Close();
-                return m;*/
+                return m;
 
-        }
+        }*/
     }
 }

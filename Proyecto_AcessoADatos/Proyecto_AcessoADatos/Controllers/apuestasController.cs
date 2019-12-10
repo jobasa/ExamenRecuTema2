@@ -12,14 +12,14 @@ namespace Proyecto_AcessoADatos.Controllers
     {
         // GET: api/apuestas
         [Authorize]
-        public apuestasDTO Get(string Email)
+        /*public apuestasDTO Get(string Email)
         {
             //Devuelve un array de eventos en formato JSON
             var repo = new apuestasRepository();
-            /*List<apuestas> apuesta = repo.Retrieve();*/
+            /*List<apuestas> apuesta = repo.Retrieve();
             apuestasDTO apuesta = repo.RetrieveDTO();
             return apuesta;
-        }
+        }*/
 
         // GET: api/apuestas/5
         public List<apuestas> Get(int id)
