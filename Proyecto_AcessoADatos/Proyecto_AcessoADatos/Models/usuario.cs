@@ -7,6 +7,11 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class usuario
     {
+        public usuario()
+        {
+
+        }
+
         public usuario(int ID, string Nombre, string Apellido, string Email, int Edad)
         {
             this.ID = ID;

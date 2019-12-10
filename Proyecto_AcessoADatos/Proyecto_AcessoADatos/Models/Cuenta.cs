@@ -7,6 +7,11 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class cuenta
     {
+        public cuenta()
+        {
+
+        }
+
         public cuenta(int ID, string Num_tarjeta_vinculada, decimal Saldo_actual, string Nombre_banco, int ID_Usuario)
         {
             this.ID = ID;

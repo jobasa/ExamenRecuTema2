@@ -20,7 +20,7 @@ namespace Proyecto_AcessoADatos.Models
         public List<mercado> Mercados { get; set; }
     }
 
-    public class eventoDTO
+    /*public class eventoDTO
     {
         public eventoDTO(string Equipo_Local, string Equipo_visitante)
         {
@@ -30,5 +30,5 @@ namespace Proyecto_AcessoADatos.Models
 
         public string Equipo_Local { get; set; }
         public string Equipo_visitante { get; set; }
-    }
+    }*/
 }

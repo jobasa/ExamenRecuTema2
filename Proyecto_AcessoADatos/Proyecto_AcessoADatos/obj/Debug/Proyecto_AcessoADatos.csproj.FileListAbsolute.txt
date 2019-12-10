@@ -387,3 +387,6 @@ C:\Users\2dam\Desktop\AccesoADatosGitHub\Proyecto_AcessoADatos\Proyecto_AcessoAD
 C:\Users\Joan\Desktop\Cosas de clase\Acceso_a_DatosGITHUB\Proyecto_AcessoADatos\Proyecto_AcessoADatos\obj\Debug\Proyecto_AcessoADatos.csprojAssemblyReference.cache
 C:\Users\Joan\Desktop\Cosas de clase\Acceso_a_DatosGITHUB\Proyecto_AcessoADatos\Proyecto_AcessoADatos\obj\Debug\Proyecto_AcessoADatos.dll
 C:\Users\Joan\Desktop\Cosas de clase\Acceso_a_DatosGITHUB\Proyecto_AcessoADatos\Proyecto_AcessoADatos\obj\Debug\Proyecto_AcessoADatos.pdb
+C:\Users\Joan\Desktop\Cosas de clase\Acceso_a_DatosGITHUB2\Proyecto_AcessoADatos\Proyecto_AcessoADatos\obj\Debug\Proyecto_AcessoADatos.csprojAssemblyReference.cache
+C:\Users\Joan\Desktop\Cosas de clase\Acceso_a_DatosGITHUB2\Proyecto_AcessoADatos\Proyecto_AcessoADatos\obj\Debug\Proyecto_AcessoADatos.dll
+C:\Users\Joan\Desktop\Cosas de clase\Acceso_a_DatosGITHUB2\Proyecto_AcessoADatos\Proyecto_AcessoADatos\obj\Debug\Proyecto_AcessoADatos.pdb

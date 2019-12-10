@@ -30,7 +30,7 @@ namespace Proyecto_AcessoADatos.Models
         public List<apuestas> Apuestas { get; set; }
     }
 
-    public class mercadoDTO
+    /*public class mercadoDTO
     {
         public mercadoDTO(string tipo_mercado, decimal Cuota_over, decimal Cuota_under)
         {
@@ -42,5 +42,5 @@ namespace Proyecto_AcessoADatos.Models
         public string tipo_mercado { get; set; }
         public decimal Cuota_over { get; set; }
         public decimal Cuota_under { get; set; }
-    }
+    }*/
 }
