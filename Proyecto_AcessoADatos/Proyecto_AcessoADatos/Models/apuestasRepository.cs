@@ -19,9 +19,15 @@ namespace Proyecto_AcessoADatos.Models
     }*/
 
 
-        internal List<apuestas> Retrieve()
+        internal apuestas Retrieve()
             {
-            return null;
+            List<apuestas> Apuesta = new List<apuestas>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                Apuesta = context.Apuesta.ToList();
+            }
+
+                return Apuesta;
                 //Devuelve todos los registros
                 //MySqlConnection con = Connect();
                 //MySqlCommand command = con.CreateCommand();
@@ -49,82 +55,95 @@ namespace Proyecto_AcessoADatos.Models
 
 
         }
+        List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
 
-    /*internal apuestasDTO RetrieveDTO()
+        internal apuestas Retrieve(int id)
         {
-            return null;
-            //Devuelve todos los registros
-            //MySqlConnection con = Connect();
-            //MySqlCommand command = con.CreateCommand();
-            //command.CommandText = "Select(A.Cuota,A.Tipo_apuesta,A.Dinero_apostado,U.Email,M.tipo_mercado) from apuestas A INNER JOIN usuario U INNER JOIN mercado M ON A.ID_MERCADO = M.id AND A.ID_USUARIOS = U.ID; ";
-
-
-                //con.Open();
-                //MySqlDataReader res = command.ExecuteReader();
-
-                //apuestasDTO a = null;
-
-                //Cada vez que ecuentra un objeto lo añade al list
-                //List<apuestasDTO> apuesta = new List<apuestasDTO>();
-
-                //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
-                /*if (res.Read())
-                {
-                    a = new apuestasDTO(res.GetDecimal(0), res.GetDecimal(1), res.GetString(2));
-                }
-
-                con.Close();
-                return a;
-
-
-
-        }*/
-
-        internal void Save(apuestas a)
-        {
-            //MySqlConnection con = Connect();
-            //MySqlCommand command = con.CreateCommand();
-            //command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
-            ///Debug.WriteLine("comando" + command.CommandText);
-
-            List<mercado> m = Recupera()/modificar aquiS
- 
-
-            double Cuota_over; 
-            double Cuota_under;
-            double prob_over;
-            double prob_under;
-
-            prob_over = m.Dinero_over / (m.Dinero_over + m.Dinero_under);
-            prob_under = m.Dinero_under / (m.Dinero_over + m.Dinero_under);
-
-            Cuota_over = 1 / prob_over * 0.95;
-            Cuota_under = 1 / prob_under * 0.95;
-
-           /* if (a.Tipo_apuesta == "over")
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                command.CommandText = "UPDATE mercado set Dinero_over = Dinero_over" + a.Dinero_apostado + "WHERE id =" + a.ID_MERCADO + ";";
-                Debug.WriteLine("comando" + command.CommandText);
+                Apuestas = context.apuestas
+                    .where(m => m.ID == id)
+                    .FirstOrDefault();
             }
-            else if (a.Tipo_apuesta == "under")
-            {
-                command.CommandText = "UPDATE mercado set Dinero_under = Dinero_under" + a.Dinero_apostado + "WHERE id =" + a.ID_MERCADO + ";";
-                Debug.WriteLine("comando" + command.CommandText);
-            }*/
-
-           /* try
-            {
-                con.Open();
-                command.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (MySqlException e)
-            {
-                Debug.WriteLine("Se ha producido un error de conexión");
-            }*/
-
-
+            return Apuestas;
         }
+
+
+        /*internal apuestasDTO RetrieveDTO()
+            {
+                return null;
+                //Devuelve todos los registros
+                //MySqlConnection con = Connect();
+                //MySqlCommand command = con.CreateCommand();
+                //command.CommandText = "Select(A.Cuota,A.Tipo_apuesta,A.Dinero_apostado,U.Email,M.tipo_mercado) from apuestas A INNER JOIN usuario U INNER JOIN mercado M ON A.ID_MERCADO = M.id AND A.ID_USUARIOS = U.ID; ";
+
+
+                    //con.Open();
+                    //MySqlDataReader res = command.ExecuteReader();
+
+                    //apuestasDTO a = null;
+
+                    //Cada vez que ecuentra un objeto lo añade al list
+                    //List<apuestasDTO> apuesta = new List<apuestasDTO>();
+
+                    //Devolver objeto apuestas. Se devolvera un registro y lo añadira a la lista
+                    /*if (res.Read())
+                    {
+                        a = new apuestasDTO(res.GetDecimal(0), res.GetDecimal(1), res.GetString(2));
+                    }
+
+                    con.Close();
+                    return a;
+
+
+
+            }*/
+
+        /* internal void Save(apuestas a)
+         {
+             //MySqlConnection con = Connect();
+             //MySqlCommand command = con.CreateCommand();
+             //command.CommandText = "INSERT INTO apuestas(Id,Tipo_apuesta,Cuota,Dinero_apostado,ID_MERCADO,ID_USUARIOS) values ('"+a.Id+"','"+a.Tipo_apuesta+"','"+a.Cuota+"','"+a.Dinero_apostado+"','"+a.ID_MERCADO+"','"+a.ID_USUARIOS+"');";
+             ///Debug.WriteLine("comando" + command.CommandText);
+
+             List<mercado> m = Recupera()//modificar aqui
+
+
+             double Cuota_over; 
+             double Cuota_under;
+             double prob_over;
+             double prob_under;
+
+             prob_over = m.Dinero_over / (m.Dinero_over + m.Dinero_under);
+             prob_under = m.Dinero_under / (m.Dinero_over + m.Dinero_under);
+
+             Cuota_over = 1 / prob_over * 0.95;
+             Cuota_under = 1 / prob_under * 0.95;
+
+            /* if (a.Tipo_apuesta == "over")
+             {
+                 command.CommandText = "UPDATE mercado set Dinero_over = Dinero_over" + a.Dinero_apostado + "WHERE id =" + a.ID_MERCADO + ";";
+                 Debug.WriteLine("comando" + command.CommandText);
+             }
+             else if (a.Tipo_apuesta == "under")
+             {
+                 command.CommandText = "UPDATE mercado set Dinero_under = Dinero_under" + a.Dinero_apostado + "WHERE id =" + a.ID_MERCADO + ";";
+                 Debug.WriteLine("comando" + command.CommandText);
+             }*/
+
+        /* try
+         {
+             con.Open();
+             command.ExecuteNonQuery();
+             con.Close();
+         }
+         catch (MySqlException e)
+         {
+             Debug.WriteLine("Se ha producido un error de conexión");
+         }
+
+
+     }*/
         private List<mercado> Recupera(int id)
         {
             MySqlConnection con = Connect();
