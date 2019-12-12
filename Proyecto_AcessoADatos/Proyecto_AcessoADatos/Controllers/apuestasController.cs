@@ -22,18 +22,18 @@ namespace Proyecto_AcessoADatos.Controllers
         }*/
 
         // GET: api/apuestas/5
-        public List<apuestas> Get(int id)
+       /* public List<apuestas> Get(int id)
         {
             var repo = new apuestasRepository();
             List<apuestas> a = repo.Retrieve();
             return a;
-        }
+        }*/
 
         // POST: api/apuestas
         public void Post([FromBody]apuestas d)
         {
             var repo = new apuestasRepository();
-            repo.Save(d);
+            //repo.Save(d);
         }
 
         // PUT: api/apuestas/5

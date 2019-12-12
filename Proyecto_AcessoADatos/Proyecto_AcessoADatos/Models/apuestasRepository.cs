@@ -61,8 +61,8 @@ namespace Proyecto_AcessoADatos.Models
         {
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                Apuestas = context.apuestas
-                    .where(m => m.ID == id)
+                Apuestas = context.Apuestas
+                    .Where(m => m.ID == id)
                     .FirstOrDefault();
             }
             return Apuestas;
@@ -144,7 +144,7 @@ namespace Proyecto_AcessoADatos.Models
 
 
      }*/
-        private List<mercado> Recupera(int id)
+       /* private List<mercado> Recupera(int id)
         {
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -170,7 +170,7 @@ namespace Proyecto_AcessoADatos.Models
             }
 
 
-        }
+        }*/
 
 
     }

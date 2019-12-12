@@ -8,19 +8,18 @@ namespace Proyecto_AcessoADatos.Models
 {
     public class PlaceMyBetContext : DbContext
     {
-        public class PlaceMybetContext : DbContext
-        {
+
             public DbSet<apuestas> Apuestas { get; set; } //Taula
             public DbSet<cuenta> Cuentas { get; set; } //Taula
             public DbSet<evento> Eventos { get; set; } //Taula
             public DbSet<mercado> Mercados { get; set; } //Taula
             public DbSet<usuario> Usuarios { get; set; } //Taula
 
-            public PlaceMybetContext()
+            public PlaceMyBetContext()
             {
             }
 
-            public PlaceMybetContext(DbContextOptions options)
+            public PlaceMyBetContext(DbContextOptions options)
             : base(options)
             {
             }
@@ -44,7 +43,6 @@ namespace Proyecto_AcessoADatos.Models
                  modelBuilder.Entity<Disco>().HasData(new Disco(1, "The number of the beast", 1982, 1));
                  modelBuilder.Entity<Disco>().HasData(new Disco(2, "Land of the free", 1998, 2));*/
             }
-        }
 
     }
 }
