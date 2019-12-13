@@ -32,8 +32,11 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
         // POST: api/mercado
-        public void Post([FromBody]string value)
+        public void Post([FromBody]mercado merc)
         {
+            var repo = new mercadoRepository();
+            //repo.Savemercado(merc);
+
         }
 
         // PUT: api/mercado/5

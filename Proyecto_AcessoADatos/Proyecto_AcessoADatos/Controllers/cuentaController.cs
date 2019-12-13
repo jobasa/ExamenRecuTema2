@@ -11,20 +11,21 @@ namespace Proyecto_AcessoADatos.Controllers
     public class cuentaController : ApiController
     {
         // GET: api/cuenta
-       /* public IEnumerable<cuenta> Get()
+       public IEnumerable<string> Get()
         {
             //Devuelve un array de eventos en formato JSON
-            var repo = new cuentaRepository();
+            /*var repo = new cuentaRepository();
             List<cuenta> cuentas= repo.Retrieve();
-            return cuentas;
-        }*/
+            return cuentas;*/
+            return new string[] { "value1", "value2" };
+        }
 
         // GET: api/cuenta/5
-        public cuenta Get(int id)
+        public string Get(int id)
         {
             /*var repo = new cuentaRepository();
             cuenta c = repo.Retrieve();*/
-            return null;
+            return "value";
         }
 
         // POST: api/cuenta

@@ -31,18 +31,24 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
         // POST: api/evento
-        public void Post([FromBody]string value)
+        public void Post([FromBody]evento Event)
         {
+            var repo = new eventoRepository();
+            //repo.Save(Event);
         }
 
         // PUT: api/evento/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]string Equipo_Local, string Equipo_visitante)
         {
+            var repo = new eventoRepository();
+            //repo.Update(id, Equipo_Local, Equipo_visitante);
         }
 
         // DELETE: api/evento/5
         public void Delete(int id)
         {
+            var repo = new eventoRepository();
+            //repo.Delete(id);
         }
     }
 }

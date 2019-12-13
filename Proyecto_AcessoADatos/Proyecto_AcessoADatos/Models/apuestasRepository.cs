@@ -19,7 +19,7 @@ namespace Proyecto_AcessoADatos.Models
     }*/
 
 
-        internal apuestas Retrieve()
+        /*internal apuestas Retrieve()
             {
             List<apuestas> Apuesta = new List<apuestas>();
             using (PlaceMyBetContext context = new PlaceMyBetContext())
@@ -51,13 +51,41 @@ namespace Proyecto_AcessoADatos.Models
 
                 con.Close();
                 return apuesta;
-                */
+                
+
+
+        }*/
+        //List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
+
+        private apuestasDTO ToDTO(apuestas a)
+        {
+            return new apuestasDTO(a.Tipo_apuesta, a.Cuota, a.Dinero_apostado, a.ID_MERCADO, a.ID_USUARIOS);
+        }
+
+
+
+        internal void Save(apuestas Ap)
+        {
+            var mercadoRepo = new mercadoRepository();
+            mercado merc;
+
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.Apuestas.Add(Ap);
+            merc = mercadoRepo.Retrieve(Ap.ID_MERCADO);
+            if (Ap.Tipo_apuesta.ToLower()== "over")
+            {
+                merc.Dinero_over += Ap.Dinero_apostado;
+            }
+            else
+            {
+                merc.Dinero_under += Ap.Dinero_apostado;
+            }
+            context.Mercados.Update(merc);
+            context.SaveChanges();
 
 
         }
-        List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
-
-        internal apuestas Retrieve(int id)
+      /*  internal apuestas Retrieve(int id)
         {
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
@@ -66,7 +94,7 @@ namespace Proyecto_AcessoADatos.Models
                     .FirstOrDefault();
             }
             return Apuestas;
-        }
+        }*/
 
 
         /*internal apuestasDTO RetrieveDTO()
