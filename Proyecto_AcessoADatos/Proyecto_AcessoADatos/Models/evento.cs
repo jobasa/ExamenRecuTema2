@@ -9,12 +9,18 @@ namespace Proyecto_AcessoADatos.Models
     {
         public evento(int ID_Equipo, string Equipo_Local, string Equipo_visitante)
         {
-            this.ID_Equipo = ID_Equipo;
+            this.EventoId = ID_Equipo;
             this.Equipo_Local = Equipo_Local;
             this.Equipo_visitante = Equipo_visitante;
         }
 
-        public int ID_Equipo { get; set; }
+        public evento()
+        {
+
+        }
+
+
+        public int EventoId { get; set; }
         public string Equipo_Local { get; set; }
         public string Equipo_visitante { get; set; }
         public List<mercado> Mercados { get; set; }

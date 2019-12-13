@@ -15,7 +15,7 @@ namespace Proyecto_AcessoADatos.Models
             MySql.Data.MySqlClient.MySqlConnection con = new MySqlConnection(connString);
             return con;
         }*/
-        internal mercado Retrieve(int ID_MERCADO)
+        internal mercado Retrieve(int id)
         {
             return null;
             //Devuelve todos los registros

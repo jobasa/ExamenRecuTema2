@@ -18,7 +18,7 @@ namespace Proyecto_AcessoADatos.Models
             this.Num_tarjeta_vinculada = Num_tarjeta_vinculada;
             this.Saldo_actual = Saldo_actual;
             this.Nombre_banco = Nombre_banco;
-            this.ID_Usuario = ID_Usuario;
+            this.UsuarioId = ID_Usuario;
 
 
         }
@@ -27,7 +27,7 @@ namespace Proyecto_AcessoADatos.Models
         public string Num_tarjeta_vinculada { get; set; }
         public decimal Saldo_actual { get; set; }
         public string Nombre_banco { get; set; }
-        public int ID_Usuario { get; set; }
-        public usuario usuario { get; set; }
+        public int UsuarioId { get; set; }
+        public usuario Usuario { get; set; }
     }
 }

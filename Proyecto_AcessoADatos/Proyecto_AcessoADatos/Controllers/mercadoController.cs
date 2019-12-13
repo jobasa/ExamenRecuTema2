@@ -27,7 +27,7 @@ namespace Proyecto_AcessoADatos.Controllers
         public mercado Get(int id)
         {
             var repo = new mercadoRepository();
-            mercado d = repo.Retrieve();
+            mercado d = repo.Retrieve(id);
             return d;
         }
 
