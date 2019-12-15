@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Proyecto_AcessoADatos.Controllers
 {
-    public class usuarioController : ApiController
+    public class UsuarioController : ApiController
     {
         // GET: api/usuario
          public IEnumerable<string> Get()

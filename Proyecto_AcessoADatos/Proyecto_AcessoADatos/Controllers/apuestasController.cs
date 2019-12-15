@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Proyecto_AcessoADatos.Controllers
 {
-    public class apuestasController : ApiController
+    public class ApuestasController : ApiController
     {
         // GET: api/apuestas
         /*[Authorize]
@@ -30,9 +30,9 @@ namespace Proyecto_AcessoADatos.Controllers
          }*/
 
         // POST: api/apuestas
-        public void Post([FromBody]apuestas d)
+        public void Post([FromBody]Apuestas d)
         {
-            var repo = new apuestasRepository();
+            var repo = new ApuestasRepository();
             //repo.Save(d);
         }
 

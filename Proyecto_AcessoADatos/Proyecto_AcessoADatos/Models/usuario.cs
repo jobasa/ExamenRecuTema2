@@ -5,14 +5,14 @@ using System.Web;
 
 namespace Proyecto_AcessoADatos.Models
 {
-    public class usuario
+    public class Usuario
     {
-        public usuario()
+        public Usuario()
         {
 
         }
 
-        public usuario(int ID, string Nombre, string Apellido, string Email, int Edad)
+        public Usuario(int ID, string Nombre, string Apellido, string Email, int Edad)
         {
             this.ID = ID;
             this.Nombre = Nombre;

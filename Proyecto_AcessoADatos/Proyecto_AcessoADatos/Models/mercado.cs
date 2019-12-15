@@ -6,9 +6,9 @@ using System.Web;
 namespace Proyecto_AcessoADatos.Models
 {
 
-    public class mercado
+    public class Mercado
     {
-        public mercado(string tipo_mercado, decimal Cuota_over, decimal Cuota_under, int id, float Dinero_over, float Dinero_under, int IDEvento)
+        public Mercado(string tipo_mercado, decimal Cuota_over, decimal Cuota_under, int id, float Dinero_over, float Dinero_under, int IDEvento)
         {
             this.tipo_mercado = tipo_mercado;
             this.Cuota_over = Cuota_over;
@@ -26,8 +26,8 @@ namespace Proyecto_AcessoADatos.Models
         public float Dinero_over { get; set; }
         public float Dinero_under { get; set; }
         public int IDEvento { get; set; }
-        public evento evento { get; set; }
-        public List<apuestas> Apuestas { get; set; }
+        public Evento evento { get; set; }
+        public List<Apuestas> Apuestas { get; set; }
     }
 
     /*public class mercadoDTO

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Proyecto_AcessoADatos.Models
 {
-    public class eventoRepository
+    public class EventoRepository
     {
         /*private MySqlConnection Connect()
         {
@@ -15,7 +15,7 @@ namespace Proyecto_AcessoADatos.Models
             MySql.Data.MySqlClient.MySqlConnection con = new MySqlConnection(connString);
             return con;
         }*/
-        internal evento Retrieve()
+        internal Evento Retrieve()
         {
             return null;
             //Devuelve todos los registros

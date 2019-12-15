@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Proyecto_AcessoADatos.Models
 {
-    public class usuarioRepository
+    public class UsuarioRepository
     {
      /*   private MySqlConnection Connect()
         {

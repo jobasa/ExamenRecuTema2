@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Proyecto_AcessoADatos.Controllers
 {
-    public class mercadoController : ApiController
+    public class MercadoController : ApiController
     {
 
         // GET: api/mercado
@@ -24,17 +24,17 @@ namespace Proyecto_AcessoADatos.Controllers
 
         // GET: api/mercado/5
         [Authorize(Roles = "Admin")]
-        public mercado Get(int id)
+        public Mercado Get(int id)
         {
-            var repo = new mercadoRepository();
-            mercado d = repo.Retrieve(id);
+            var repo = new MercadoRepository();
+            Mercado d = repo.Retrieve(id);
             return d;
         }
 
         // POST: api/mercado
-        public void Post([FromBody]mercado merc)
+        public void Post([FromBody]Mercado merc)
         {
-            var repo = new mercadoRepository();
+            var repo = new MercadoRepository();
             //repo.Savemercado(merc);
 
         }

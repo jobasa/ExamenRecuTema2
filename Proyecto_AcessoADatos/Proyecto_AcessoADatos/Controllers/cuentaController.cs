@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Proyecto_AcessoADatos.Controllers
 {
-    public class cuentaController : ApiController
+    public class CuentaController : ApiController
     {
         // GET: api/cuenta
        public IEnumerable<string> Get()

@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Proyecto_AcessoADatos.Models
 {
-    public class apuestas
+    public class Apuestas
     {
-        public apuestas(int Id, float Dinero_apostado, decimal Cuota, string Tipo_apuesta, int ID_MERCADO, int ID_USUARIOS)
+        public Apuestas(int Id, float Dinero_apostado, decimal Cuota, string Tipo_apuesta, int ID_MERCADO, int ID_USUARIOS)
         {
             this.Id = Id;
             this.Dinero_apostado = Dinero_apostado;
@@ -23,7 +23,7 @@ namespace Proyecto_AcessoADatos.Models
         public string Tipo_apuesta { get; set; }
         public int ID_MERCADO { get; set; }
         public int ID_USUARIOS { get; set; }
-        public mercado mercado { get; set; }
+        public Mercado mercado { get; set; }
     }
 
     public class apuestasDTO

@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Proyecto_AcessoADatos.Controllers
 {
-    public class eventoController : ApiController
+    public class EventoController : ApiController
     {
 
         // GET: api/evento
@@ -23,31 +23,31 @@ namespace Proyecto_AcessoADatos.Controllers
 
 
         // GET: api/evento/5
-        public evento Get(int id)
+        public Evento Get(int id)
         {
-            var repo = new eventoRepository();
-            evento e= repo.Retrieve();
+            var repo = new EventoRepository();
+            Evento e= repo.Retrieve();
             return e;
         }
 
         // POST: api/evento
-        public void Post([FromBody]evento Event)
+        public void Post([FromBody]Evento Event)
         {
-            var repo = new eventoRepository();
+            var repo = new EventoRepository();
             //repo.Save(Event);
         }
 
         // PUT: api/evento/5
         public void Put(int id, [FromBody]string Equipo_Local, string Equipo_visitante)
         {
-            var repo = new eventoRepository();
+            var repo = new EventoRepository();
             //repo.Update(id, Equipo_Local, Equipo_visitante);
         }
 
         // DELETE: api/evento/5
         public void Delete(int id)
         {
-            var repo = new eventoRepository();
+            var repo = new EventoRepository();
             //repo.Delete(id);
         }
     }

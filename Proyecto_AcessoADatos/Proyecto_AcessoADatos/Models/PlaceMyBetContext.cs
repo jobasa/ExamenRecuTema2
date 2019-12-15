@@ -9,11 +9,11 @@ namespace Proyecto_AcessoADatos.Models
     public class PlaceMyBetContext : DbContext
     {
 
-            public DbSet<apuestas> Apuestas { get; set; } //Taula
+            public DbSet<Apuestas> Apuestas { get; set; } //Taula
             public DbSet<cuenta> Cuentas { get; set; } //Taula
-            public DbSet<evento> Eventos { get; set; } //Taula
-            public DbSet<mercado> Mercados { get; set; } //Taula
-            public DbSet<usuario> Usuarios { get; set; } //Taula
+            public DbSet<Evento> Eventos { get; set; } //Taula
+            public DbSet<Mercado> Mercados { get; set; } //Taula
+            public DbSet<Usuario> Usuarios { get; set; } //Taula
 
             public PlaceMyBetContext()
             {
