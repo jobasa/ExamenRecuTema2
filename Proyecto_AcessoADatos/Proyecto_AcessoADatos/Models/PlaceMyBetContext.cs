@@ -29,7 +29,7 @@ namespace Proyecto_AcessoADatos.Models
             {
                 if (!optionsBuilder.IsConfigured)
                 {
-                    optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=mydb2;Uid=root;password=none;SslMode=none");//màquina retos
+                    optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=myDB2;Uid=root;password=none;SslMode=none");//màquina retos
 
                 }
             }
