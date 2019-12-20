@@ -29,7 +29,7 @@ namespace Proyecto_AcessoADatos.Models
             {
                 if (!optionsBuilder.IsConfigured)
                 {
-                    optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=myDB2;Uid=root;password=none;SslMode=none");//màquina retos
+                    optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=myDB2;Uid=root;password='';SslMode=none");//màquina retos
 
                 }
             }
@@ -37,11 +37,11 @@ namespace Proyecto_AcessoADatos.Models
             //Inserció inicial de dades
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
-                /* modelBuilder.Entity<Grupo>().HasData(new Grupo(1, "Iron Maiden"));
+                modelBuilder.Entity<Evento>().HasData(new Evento(1, "Valencia","Ajax"));
                  modelBuilder.Entity<Grupo>().HasData(new Grupo(2, "Gamma Ray"));
                  modelBuilder.Entity<Grupo>().HasData(new Grupo(3, "Stratovarius"));
                  modelBuilder.Entity<Disco>().HasData(new Disco(1, "The number of the beast", 1982, 1));
-                 modelBuilder.Entity<Disco>().HasData(new Disco(2, "Land of the free", 1998, 2));*/
+                 modelBuilder.Entity<Disco>().HasData(new Disco(2, "Land of the free", 1998, 2));
             }
 
     }
