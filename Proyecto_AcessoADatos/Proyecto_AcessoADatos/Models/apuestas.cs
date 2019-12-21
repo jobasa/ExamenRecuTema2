@@ -17,6 +17,8 @@ namespace Proyecto_AcessoADatos.Models
             this.ID_USUARIOS = ID_USUARIOS;
         }
 
+
+
         public int Id { get; set; }
         public float Dinero_apostado { get; set; }
         public decimal Cuota { get; set; }
