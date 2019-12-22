@@ -38,10 +38,10 @@ namespace Proyecto_AcessoADatos.Models
             protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
                 modelBuilder.Entity<Evento>().HasData(new Evento(1, "Valencia","Ajax"));
-                 modelBuilder.Entity<>(Apuestas).HasData(new Apuestas(2, "Gamma Ray"));
-                 modelBuilder.Entity<cuenta>().HasData(new cuenta(1, "4000001234567899", 100, "La Caixa",1));
-                 modelBuilder.Entity<Mercado>().HasData(new Mercado(1, 2, 2,));
-                 modelBuilder.Entity<Usuario>().HasData(new Usuario(1,"Joan","Banyuls","jobanyuls@gmail.com", 20));
+                modelBuilder.Entity<Apuestas>().HasData(new Apuestas(1,100,3,"Aouesta Over",1,1));
+                modelBuilder.Entity<cuenta>().HasData(new cuenta(1, "4000001234567899", 100, "La Caixa",1));
+                modelBuilder.Entity<Mercado>().HasData(new Mercado("LaLiga",2,2,1,3,3,1));
+                modelBuilder.Entity<Usuario>().HasData(new Usuario(1,"Joan","Banyuls","jobanyuls@gmail.com", 20));
             }
 
     }

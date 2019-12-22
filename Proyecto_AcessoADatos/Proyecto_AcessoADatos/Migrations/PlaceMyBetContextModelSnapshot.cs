@@ -17,7 +17,7 @@ namespace Proyecto_AcessoADatos.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.apuestas", b =>
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.Apuestas", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -39,30 +39,20 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasIndex("mercadoid");
 
                     b.ToTable("Apuestas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Cuota = 3m,
+                            Dinero_apostado = 100f,
+                            ID_MERCADO = 1,
+                            ID_USUARIOS = 1,
+                            Tipo_apuesta = "Aouesta Over"
+                        });
                 });
 
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.cuenta", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Nombre_banco");
-
-                    b.Property<string>("Num_tarjeta_vinculada");
-
-                    b.Property<decimal>("Saldo_actual");
-
-                    b.Property<int>("UsuarioId");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UsuarioId")
-                        .IsUnique();
-
-                    b.ToTable("Cuentas");
-                });
-
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.evento", b =>
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.Evento", b =>
                 {
                     b.Property<int>("EventoId")
                         .ValueGeneratedOnAdd();
@@ -74,9 +64,17 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasKey("EventoId");
 
                     b.ToTable("Eventos");
+
+                    b.HasData(
+                        new
+                        {
+                            EventoId = 1,
+                            Equipo_Local = "Valencia",
+                            Equipo_visitante = "Ajax"
+                        });
                 });
 
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.mercado", b =>
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.Mercado", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
@@ -100,9 +98,21 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasIndex("EventoId");
 
                     b.ToTable("Mercados");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            Cuota_over = 2m,
+                            Cuota_under = 2m,
+                            Dinero_over = 3f,
+                            Dinero_under = 3f,
+                            IDEvento = 1,
+                            tipo_mercado = "LaLiga"
+                        });
                 });
 
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.usuario", b =>
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.Usuario", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
@@ -118,28 +128,69 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Usuarios");
-                });
 
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.apuestas", b =>
-                {
-                    b.HasOne("Proyecto_AcessoADatos.Models.mercado", "mercado")
-                        .WithMany("Apuestas")
-                        .HasForeignKey("mercadoid");
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Apellido = "Banyuls",
+                            Edad = 20,
+                            Email = "jobanyuls@gmail.com",
+                            Nombre = "Joan"
+                        });
                 });
 
             modelBuilder.Entity("Proyecto_AcessoADatos.Models.cuenta", b =>
                 {
-                    b.HasOne("Proyecto_AcessoADatos.Models.usuario", "Usuario")
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Nombre_banco");
+
+                    b.Property<string>("Num_tarjeta_vinculada");
+
+                    b.Property<decimal>("Saldo_actual");
+
+                    b.Property<int>("UsuarioId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UsuarioId")
+                        .IsUnique();
+
+                    b.ToTable("Cuentas");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Nombre_banco = "La Caixa",
+                            Num_tarjeta_vinculada = "4000001234567899",
+                            Saldo_actual = 100m,
+                            UsuarioId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.Apuestas", b =>
+                {
+                    b.HasOne("Proyecto_AcessoADatos.Models.Mercado", "mercado")
+                        .WithMany("Apuestas")
+                        .HasForeignKey("mercadoid");
+                });
+
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.Mercado", b =>
+                {
+                    b.HasOne("Proyecto_AcessoADatos.Models.Evento", "evento")
+                        .WithMany("Mercados")
+                        .HasForeignKey("EventoId");
+                });
+
+            modelBuilder.Entity("Proyecto_AcessoADatos.Models.cuenta", b =>
+                {
+                    b.HasOne("Proyecto_AcessoADatos.Models.Usuario", "Usuario")
                         .WithOne("cuenta")
                         .HasForeignKey("Proyecto_AcessoADatos.Models.cuenta", "UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Proyecto_AcessoADatos.Models.mercado", b =>
-                {
-                    b.HasOne("Proyecto_AcessoADatos.Models.evento", "evento")
-                        .WithMany("Mercados")
-                        .HasForeignKey("EventoId");
                 });
 #pragma warning restore 612, 618
         }
