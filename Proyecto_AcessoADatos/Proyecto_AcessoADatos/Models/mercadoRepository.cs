@@ -15,9 +15,15 @@ namespace Proyecto_AcessoADatos.Models
             MySql.Data.MySqlClient.MySqlConnection con = new MySqlConnection(connString);
             return con;
         }*/
-        internal Mercado Retrieve(int id)
+        internal List<Mercado> Retrieve()
         {
-            return null;
+            List<Mercado> mercados = new List<Mercado>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercados = context.Mercados.ToList();
+            }
+
+            return mercados;
             //Devuelve todos los registros
             //MySqlConnection con = Connect();
             //MySqlCommand command = con.CreateCommand();

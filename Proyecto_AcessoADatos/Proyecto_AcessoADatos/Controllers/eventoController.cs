@@ -12,21 +12,20 @@ namespace Proyecto_AcessoADatos.Controllers
     {
 
         // GET: api/evento
-       /* public eventoDTO Get()
+        public IEnumerable<Evento> Get()
         {
             //Devuelve un array de eventos en formato JSON
-            var repo = new eventoRepository();
-            /*List<evento> eventos = repo.Retrieve();
-            eventoDTO e = repo.RetrieveDTO();
-            return e;
-        }*/
+            var repo = new EventoRepository();
+            List<Evento> eventos = repo.Retrieve();
+            return eventos;
+        }
 
 
         // GET: api/evento/5
         public Evento Get(int id)
         {
             var repo = new EventoRepository();
-            Evento e= repo.Retrieve();
+            Evento e= repo.Retrieve(id);
             return e;
         }
 

@@ -15,9 +15,16 @@ namespace Proyecto_AcessoADatos.Models
             MySql.Data.MySqlClient.MySqlConnection con = new MySqlConnection(connString);
             return con;
         }*/
-        internal Evento Retrieve()
+        internal List<Evento> Retrieve()
         {
-            return null;
+            //Hacer un GET
+            List<Evento> eventos = new List<Evento>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventos = context.Eventos.ToList();
+            }
+
+            return eventos;
             //Devuelve todos los registros
            // MySqlConnection con = Connect();
             //MySqlCommand command = con.CreateCommand();

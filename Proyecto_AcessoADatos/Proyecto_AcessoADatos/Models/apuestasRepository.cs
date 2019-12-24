@@ -19,15 +19,15 @@ namespace Proyecto_AcessoADatos.Models
     }*/
 
 
-        /*internal apuestas Retrieve()
+            internal List<Apuestas> Retrieve()
             {
-            List<apuestas> Apuesta = new List<apuestas>();
-            using (PlaceMyBetContext context = new PlaceMyBetContext())
-            {
-                Apuesta = context.Apuesta.ToList();
-            }
+                List<Apuestas> apuestas = new List<Apuestas>();
+                using (PlaceMyBetContext context = new PlaceMyBetContext())
+                {
+                    apuestas = context.Apuestas.ToList();
+                }
 
-                return Apuesta;
+                return apuestas;
                 //Devuelve todos los registros
                 //MySqlConnection con = Connect();
                 //MySqlCommand command = con.CreateCommand();
@@ -50,11 +50,11 @@ namespace Proyecto_AcessoADatos.Models
                     }
 
                 con.Close();
-                return apuesta;
+                return apuesta;*/
                 
 
 
-        }*/
+        }
         //List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
 
         private apuestasDTO ToDTO(Apuestas a)
@@ -64,7 +64,7 @@ namespace Proyecto_AcessoADatos.Models
 
 
 
-        internal void Save(Apuestas Ap)
+        /*internal void Save(Apuestas Ap)
         {
             var mercadoRepo = new MercadoRepository();
             Mercado merc;
@@ -84,7 +84,7 @@ namespace Proyecto_AcessoADatos.Models
             context.SaveChanges();
 
 
-        }
+        }*/
       /*  internal apuestas Retrieve(int id)
         {
             using (PlaceMyBetContext context = new PlaceMyBetContext())
