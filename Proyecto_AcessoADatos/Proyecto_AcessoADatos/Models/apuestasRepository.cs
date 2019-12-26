@@ -55,6 +55,19 @@ namespace Proyecto_AcessoADatos.Models
 
 
         }
+
+        internal Apuestas Retrieve(int id)
+        {
+            Apuestas apuesta;
+
+            using(PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuesta = context.Apuestas
+                    .Where(a => a.Id == id)
+                    .FirstOrDefault();
+            }
+            return apuesta;
+        }
         //List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
 
         private apuestasDTO ToDTO(Apuestas a)

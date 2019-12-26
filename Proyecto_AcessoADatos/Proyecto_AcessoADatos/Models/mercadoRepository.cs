@@ -46,6 +46,18 @@ namespace Proyecto_AcessoADatos.Models
             return m;*/
         }
 
+        internal Mercado Retrieve(int id)
+        {
+            Mercado mercado;
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercado = context.Mercados
+                    .Where(m => m.id == id)
+                    .SingleOrDefault();
+            }
+            return mercado;
+        }
+
         /*internal mercadoDTO RetrieveDTO()
         {
             return null;
