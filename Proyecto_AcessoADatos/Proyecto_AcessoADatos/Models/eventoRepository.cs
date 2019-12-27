@@ -45,6 +45,14 @@ namespace Proyecto_AcessoADatos.Models
             return e;*/
         }
 
+        internal void Save(Evento e)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+
+            context.Eventos.Add(e);
+            context.SaveChanges();
+        }
+
         /* internal eventoDTO RetrieveDTO()
          {
              return null;

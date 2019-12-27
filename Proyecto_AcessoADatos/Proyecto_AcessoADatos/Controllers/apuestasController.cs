@@ -20,15 +20,14 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
 
-            /*[Authorize]
-        public apuestasDTO Get(string Email)
+            /*[Authorize]*/
+        public Apuestas Get(int id)
           {
               //Devuelve un array de eventos en formato JSON
-              var repo = new apuestasRepository();
-              /*List<apuestas> apuesta = repo.Retrieve();
-              apuestasDTO apuesta = repo.RetrieveDTO();
-              return apuesta;
-          }*/
+              var repo = new ApuestasRepository();
+              Apuestas apuestas = repo.Retrieve(id);
+              return apuestas;
+          }
 
             // GET: api/apuestas/5
             /* public List<apuestas> Get(int id)
