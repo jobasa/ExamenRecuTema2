@@ -22,12 +22,12 @@ namespace Proyecto_AcessoADatos.Controllers
 
 
         // GET: api/evento/5
-        public Evento Get(int id)
+       /* public Evento Get(int id)
         {
             var repo = new EventoRepository();
             Evento e= repo.Retrieve(id);
             return e;
-        }
+        }*/
 
         // POST: api/evento
         public void Post([FromBody]Evento Event)

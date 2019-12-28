@@ -70,10 +70,10 @@ namespace Proyecto_AcessoADatos.Models
         }
         //List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
 
-        private apuestasDTO ToDTO(Apuestas a)
+       /* private apuestasDTO ToDTO(Apuestas a)
         {
             return new apuestasDTO(a.Tipo_apuesta, a.Cuota, a.Dinero_apostado, a.ID_MERCADO, a.ID_USUARIOS);
-        }
+        }*/
 
 
 

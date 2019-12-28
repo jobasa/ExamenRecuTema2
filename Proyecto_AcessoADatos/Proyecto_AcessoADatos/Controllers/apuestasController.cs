@@ -20,7 +20,7 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
 
-            /*[Authorize]*/
+        [Authorize]
         public Apuestas Get(int id)
           {
               //Devuelve un array de eventos en formato JSON
