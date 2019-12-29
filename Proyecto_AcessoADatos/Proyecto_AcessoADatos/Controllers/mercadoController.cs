@@ -22,7 +22,7 @@ namespace Proyecto_AcessoADatos.Controllers
         }
 
         // GET: api/mercado/5
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public Mercado Get(int id)
         {
             var repo = new MercadoRepository();
