@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,7 +21,7 @@ namespace Proyecto_AcessoADatos.Models
             List<Mercado> mercados = new List<Mercado>();
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                mercados = context.Mercados.ToList();
+                mercados = context.Mercados.Include(p => p.evento).ToList();
             }
 
             return mercados;
@@ -58,6 +59,8 @@ namespace Proyecto_AcessoADatos.Models
             return mercado;
         }
 
+   
+
         /*internal mercadoDTO RetrieveDTO()
         {
             return null;
@@ -84,5 +87,12 @@ namespace Proyecto_AcessoADatos.Models
                 return m;
 
         }*/
+
+        internal void SaveMercado(Mercado Merc)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.Mercados.Add(Merc);
+            context.SaveChanges();
+        }
     }
 }

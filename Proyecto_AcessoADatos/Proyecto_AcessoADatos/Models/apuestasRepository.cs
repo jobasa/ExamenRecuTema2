@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,7 +25,7 @@ namespace Proyecto_AcessoADatos.Models
                 List<Apuestas> apuestas = new List<Apuestas>();
                 using (PlaceMyBetContext context = new PlaceMyBetContext())
                 {
-                    apuestas = context.Apuestas.ToList();
+                    apuestas = context.Apuestas.Include(p => p.mercado).ToList();
                 }
 
                 return apuestas;
@@ -67,6 +68,26 @@ namespace Proyecto_AcessoADatos.Models
                     .FirstOrDefault();
             }
             return apuesta;
+        }
+
+        internal void Save(Apuestas Ap)
+        {
+            var Mercadorepo = new MercadoRepository();
+            Mercado merc;
+
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.Apuestas.Add(Ap);
+            merc = Mercadorepo.Retrieve(Ap.ID_MERCADO);
+            if(Ap.Tipo_apuesta.ToLower() == "over")
+            {
+                merc.Dinero_over += Ap.Dinero_apostado;
+            }
+            else
+            {
+                merc.Dinero_under += Ap.Dinero_apostado;
+            }
+            context.Mercados.Update(merc);
+            context.SaveChanges();
         }
         //List<apuestas> Apuestas = context.Apuesta.Include(m => m.mercado).ToList();
 
