@@ -18,6 +18,7 @@ namespace Proyecto_AcessoADatos.Models
         }*/
         internal List<Mercado> Retrieve()
         {
+            List<MercadoDTO> mercadosDTO = new List<MercadoDTO>();
             List<Mercado> mercados = new List<Mercado>();
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
@@ -57,6 +58,11 @@ namespace Proyecto_AcessoADatos.Models
                     .SingleOrDefault();
             }
             return mercado;
+        }
+
+        public MercadoDTO ToDTO(Mercado m)
+        {
+            return new MercadoDTO(m.tipo_mercado, m.Cuota_over, m.Cuota_under);
         }
 
    
