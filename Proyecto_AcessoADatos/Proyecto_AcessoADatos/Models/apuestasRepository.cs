@@ -26,6 +26,7 @@ namespace Proyecto_AcessoADatos.Models
                 using (PlaceMyBetContext context = new PlaceMyBetContext())
                 {
                     apuestas = context.Apuestas.Include(p => p.mercado).ToList();
+                    List<ApuestasDTO> apuestasDTO = context.Apuestas.Select(p => ToDTO(p)).ToList();
                 }
 
                 return apuestas;
@@ -68,6 +69,12 @@ namespace Proyecto_AcessoADatos.Models
                     .FirstOrDefault();
             }
             return apuesta;
+        }
+
+
+        public ApuestasDTO ToDTO(Apuestas a)
+        {
+            return new ApuestasDTO(a.Tipo_apuesta, a.Cuota, a.Dinero_apostado, a.ID_MERCADO, a.ID_USUARIOS);
         }
 
         internal void Save(Apuestas Ap)

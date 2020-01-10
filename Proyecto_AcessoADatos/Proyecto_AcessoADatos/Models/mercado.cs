@@ -32,14 +32,14 @@ namespace Proyecto_AcessoADatos.Models
 
     public class MercadosDTO
     {
-        public MercadosDTO(string tipo_mercado, decimal Cuota_over, decimal Cuota_under)
+        public MercadosDTO(string Tipo_mercado, decimal Cuota_over, decimal Cuota_under)
         {
-            this.tipo_mercado = tipo_mercado;
+            this.Tipo_mercado = Tipo_mercado;
             this.Cuota_over = Cuota_over;
             this.Cuota_under = Cuota_under;
         }
 
-        public string tipo_mercado { get; set; }
+        public string Tipo_mercado { get; set; }
         public decimal Cuota_over { get; set; }
         public decimal Cuota_under { get; set; }
     }

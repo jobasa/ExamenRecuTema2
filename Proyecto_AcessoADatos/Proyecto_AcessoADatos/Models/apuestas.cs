@@ -28,15 +28,15 @@ namespace Proyecto_AcessoADatos.Models
         public Mercado mercado { get; set; }
     }
 
-    public class apuestasDTO
+    public class ApuestasDTO
     {
-        public apuestasDTO(string tipo_apuesta, decimal cuota, float dinero_apostado, int iD_MERCADO, int iD_USUARIOS)
+        public ApuestasDTO(string Tipo_apuesta, decimal Cuota, float Dinero_apostado, int ID_MERCADO, int ID_USUARIOS)
         {
-            Tipo_apuesta = tipo_apuesta;
-            Cuota = cuota;
-            Dinero_apostado = dinero_apostado;
-            ID_MERCADO = iD_MERCADO;
-            ID_USUARIOS = iD_USUARIOS;
+            this.Tipo_apuesta = Tipo_apuesta;
+            this.Cuota = Cuota;
+            this.Dinero_apostado = Dinero_apostado;
+            this.ID_MERCADO = ID_MERCADO;
+            this.ID_USUARIOS = ID_USUARIOS;
         }
 
         public string Tipo_apuesta { get; set; }
