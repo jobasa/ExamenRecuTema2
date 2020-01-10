@@ -18,14 +18,15 @@ namespace Proyecto_AcessoADatos.Models
         }*/
         internal List<Mercado> Retrieve()
         {
-            List<MercadoDTO> mercadosDTO = new List<MercadoDTO>();
-            List<Mercado> mercados = new List<Mercado>();
+            List<Mercado> Mercados = new List<Mercado>();
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                mercados = context.Mercados.Include(p => p.evento).ToList();
+                Mercados = context.Mercados.Include(p => p.evento).ToList();
+                List<MercadosDTO> mercadosDTO = context.Mercados.Select(p => ToDTO(p)).ToList();
+
             }
 
-            return mercados;
+            return Mercados;
             //Devuelve todos los registros
             //MySqlConnection con = Connect();
             //MySqlCommand command = con.CreateCommand();
@@ -60,9 +61,9 @@ namespace Proyecto_AcessoADatos.Models
             return mercado;
         }
 
-        public MercadoDTO ToDTO(Mercado m)
+        public MercadosDTO ToDTO(Mercado m)
         {
-            return new MercadoDTO(m.tipo_mercado, m.Cuota_over, m.Cuota_under);
+            return new MercadosDTO(m.tipo_mercado, m.Cuota_over, m.Cuota_under);
         }
 
    
