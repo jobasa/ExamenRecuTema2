@@ -22,7 +22,7 @@ namespace Proyecto_AcessoADatos.Controllers
 
 
         // GET: api/evento/5
-       /* public Evento Get(int id)
+       /*public Evento Get(int id)
         {
             var repo = new EventoRepository();
             Evento e= repo.Retrieve(id);
@@ -33,21 +33,21 @@ namespace Proyecto_AcessoADatos.Controllers
         public void Post([FromBody]Evento Event)
         {
             var repo = new EventoRepository();
-            //repo.Save(Event);
+            repo.Save(Event);
         }
 
         // PUT: api/evento/5
-        public void Put(int id, [FromBody]string Equipo_Local, string Equipo_visitante)
+        public void Put(int ID_Equipo, [FromBody]string Equipo_Local, string Equipo_visitante)
         {
             var repo = new EventoRepository();
-            //repo.Update(id, Equipo_Local, Equipo_visitante);
+            repo.Update(ID_Equipo, Equipo_Local, Equipo_visitante);
         }
 
         // DELETE: api/evento/5
         public void Delete(int id)
         {
             var repo = new EventoRepository();
-            //repo.Delete(id);
+            repo.Delete(id);
         }
     }
 }

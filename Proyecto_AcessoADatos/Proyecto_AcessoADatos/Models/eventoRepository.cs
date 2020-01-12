@@ -45,6 +45,33 @@ namespace Proyecto_AcessoADatos.Models
             return e;*/
         }
 
+        internal void Update (int ID_Equipo, string Equipo_Local, string Equipo_visitante)
+        {
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                Evento evento = context.Eventos
+                    .Where(s => s.EventoId == ID_Equipo)
+                    .FirstOrDefault();
+                evento.Equipo_Local = Equipo_Local;
+                evento.Equipo_visitante = Equipo_visitante;
+                context.Update(evento);
+                context.SaveChanges();
+            }
+        }
+
+        internal void Delete (int id)
+        {
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                Evento e = context.Eventos
+                    .Where(s => s.EventoId == id)
+                    .FirstOrDefault();
+                context.Attach(e);
+                context.Remove(e);
+                context.SaveChanges();
+            }
+        }
+
         internal void Save(Evento e)
         {
             PlaceMyBetContext context = new PlaceMyBetContext();
