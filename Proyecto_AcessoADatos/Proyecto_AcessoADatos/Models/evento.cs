@@ -26,6 +26,22 @@ namespace Proyecto_AcessoADatos.Models
         public List<Mercado> Mercados { get; set; }
     }
 
+    /*Ejercicio 1*/
+    public class EventoExamen
+    {
+        public EventoExamen(int ID_Equipo, string Equipo_Local, string Equipo_visitante)
+        {
+            this.EventoId = ID_Equipo;
+            this.Equipo_Local = Equipo_Local;
+            this.Equipo_visitante = Equipo_visitante;
+        }
+
+        public int EventoId { get; set; }
+        public string Equipo_Local { get; set; }
+        public string Equipo_visitante { get; set; }
+    }
+    /* Fin Ejercicio 1*/
+
     /*public class eventoDTO
     {
         public eventoDTO(string Equipo_Local, string Equipo_visitante)

@@ -20,14 +20,24 @@ namespace Proyecto_AcessoADatos.Controllers
             return eventos;
         }
 
-
-        // GET: api/evento/5
-       /*public Evento Get(int id)
+        /*Ejercicio 1*/
+        // GET: api/evento/1
+        public List<EventoExamen> GetEventoExamens(string Local)
         {
             var repo = new EventoRepository();
-            Evento e= repo.Retrieve(id);
-            return e;
-        }*/
+            List<EventoExamen> EventosExamen = repo.RetrieveExamen(Local);
+            return EventosExamen;
+        }
+        /* Fin Ejercicio 1*/
+
+
+        // GET: api/evento/5
+        /*public Evento Get(int id)
+         {
+             var repo = new EventoRepository();
+             Evento e= repo.Retrieve(id);
+             return e;
+         }*/
 
         // POST: api/evento
         public void Post([FromBody]Evento Event)

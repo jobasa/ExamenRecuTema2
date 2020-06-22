@@ -45,6 +45,24 @@ namespace Proyecto_AcessoADatos.Models
             return e;*/
         }
 
+        /* Ejercicio 1 */
+        internal List<EventoExamen> RetrieveExamen(string Local)
+        {
+            List<EventoExamen> eventosExamen = new List<EventoExamen>();
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventosExamen = context.Evento
+                    .Where(a => a.Equipo_Local == Local)
+                    .ToList();
+            }
+            return eventosExamen;
+
+        }
+        /* Fin Ejercicio 1 */
+
+
+
         internal void Update (int ID_Equipo, string Equipo_Local, string Equipo_visitante)
         {
             using (PlaceMyBetContext context = new PlaceMyBetContext())
