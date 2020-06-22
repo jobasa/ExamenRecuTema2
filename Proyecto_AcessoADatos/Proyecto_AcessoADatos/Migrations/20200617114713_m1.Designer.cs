@@ -9,8 +9,8 @@ using Proyecto_AcessoADatos.Models;
 namespace Proyecto_AcessoADatos.Migrations
 {
     [DbContext(typeof(PlaceMyBetContext))]
-    [Migration("20191222113342_m2")]
-    partial class m2
+    [Migration("20200617114713_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,9 +70,9 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasData(
                         new
                         {
-                            EventoId = 1,
-                            Equipo_Local = "Valencia",
-                            Equipo_visitante = "Ajax"
+                            EventoId = 2,
+                            Equipo_Local = "Barcelona",
+                            Equipo_visitante = "Madrid"
                         });
                 });
 
@@ -105,12 +105,12 @@ namespace Proyecto_AcessoADatos.Migrations
                         new
                         {
                             id = 1,
-                            Cuota_over = 2m,
+                            Cuota_over = 3m,
                             Cuota_under = 2m,
-                            Dinero_over = 3f,
-                            Dinero_under = 3f,
-                            IDEvento = 1,
-                            tipo_mercado = "LaLiga"
+                            Dinero_over = 4f,
+                            Dinero_under = 4f,
+                            IDEvento = 2,
+                            tipo_mercado = "LigaSantander"
                         });
                 });
 
@@ -134,11 +134,11 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasData(
                         new
                         {
-                            ID = 1,
-                            Apellido = "Banyuls",
-                            Edad = 20,
-                            Email = "jobanyuls@gmail.com",
-                            Nombre = "Joan"
+                            ID = 2,
+                            Apellido = "Jorda",
+                            Edad = 22,
+                            Email = "pjorda96@gmail.com",
+                            Nombre = "Pablo"
                         });
                 });
 
@@ -165,11 +165,11 @@ namespace Proyecto_AcessoADatos.Migrations
                     b.HasData(
                         new
                         {
-                            ID = 1,
+                            ID = 2,
                             Nombre_banco = "La Caixa",
-                            Num_tarjeta_vinculada = "4000001234567899",
-                            Saldo_actual = 100m,
-                            UsuarioId = 1
+                            Num_tarjeta_vinculada = "5100001234567899",
+                            Saldo_actual = 200m,
+                            UsuarioId = 2
                         });
                 });
 

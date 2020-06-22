@@ -108,6 +108,31 @@ namespace Proyecto_AcessoADatos.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Apuestas",
+                columns: new[] { "Id", "Cuota", "Dinero_apostado", "ID_MERCADO", "ID_USUARIOS", "Tipo_apuesta", "mercadoid" },
+                values: new object[] { 1, 3m, 100f, 1, 1, "Aouesta Over", null });
+
+            migrationBuilder.InsertData(
+                table: "Eventos",
+                columns: new[] { "EventoId", "Equipo_Local", "Equipo_visitante" },
+                values: new object[] { 2, "Barcelona", "Madrid" });
+
+            migrationBuilder.InsertData(
+                table: "Mercados",
+                columns: new[] { "id", "Cuota_over", "Cuota_under", "Dinero_over", "Dinero_under", "EventoId", "IDEvento", "tipo_mercado" },
+                values: new object[] { 1, 3m, 2m, 4f, 4f, null, 2, "LigaSantander" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "ID", "Apellido", "Edad", "Email", "Nombre" },
+                values: new object[] { 2, "Jorda", 22, "pjorda96@gmail.com", "Pablo" });
+
+            migrationBuilder.InsertData(
+                table: "Cuentas",
+                columns: new[] { "ID", "Nombre_banco", "Num_tarjeta_vinculada", "Saldo_actual", "UsuarioId" },
+                values: new object[] { 2, "La Caixa", "5100001234567899", 200m, 2 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Apuestas_mercadoid",
                 table: "Apuestas",
