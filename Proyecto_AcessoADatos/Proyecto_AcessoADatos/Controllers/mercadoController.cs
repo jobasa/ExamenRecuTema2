@@ -12,7 +12,7 @@ namespace Proyecto_AcessoADatos.Controllers
     {
 
         // GET: api/mercado
-        public IEnumerable<Mercado> Get()
+        public List<Mercado> Get()
         {
             //Devuelve un array de eventos en formato JSON
             var repo = new MercadoRepository();

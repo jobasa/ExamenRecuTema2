@@ -26,7 +26,7 @@ namespace Proyecto_AcessoADatos.Models
         public float Dinero_over { get; set; }
         public float Dinero_under { get; set; }
         public int IDEvento { get; set; }
-        public Evento evento { get; set; }
+        public List<Evento> evento { get; set; }
         public List<Apuestas> Apuestas { get; set; }
     }
 
